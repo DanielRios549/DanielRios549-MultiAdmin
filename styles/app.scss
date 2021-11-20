@@ -1,0 +1,21 @@
+@use "./config/breakpoints" as *;
+@use "./config/themes";
+@use "./config/reset";
+
+
+:global(#app) {
+    background-color: var(--primary);
+
+    display: grid;
+        grid-template: 
+            "menu header header" 60px
+            "menu main main" 1fr
+            "menu footer footer" 40px
+            / 300px minmax(600px, 800px) 1fr
+        ;
+
+    main {
+        grid-area: main;
+        height: calc(100vh - 100px);
+    }
+}

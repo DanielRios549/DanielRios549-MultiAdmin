@@ -1,0 +1,18 @@
+:global(body.light) {
+    --primary: #d6d6d6;
+    --secondary: #ffffff;
+    --text: #313131;
+    --highlight: #d6d6d6;
+}
+:global(body.dark) {
+    --primary: #181818;
+    --secondary: #242526;
+    --text: #d6d6d6;
+    --highlight: #181818;
+}
+:global(body.dracula) {
+    --primary: #21222C;
+    --secondary: #282A36;
+    --text: #d6d6d6;
+    --highlight: #BD93F9;
+}
