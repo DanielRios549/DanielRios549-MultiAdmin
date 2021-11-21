@@ -1,9 +1,10 @@
 import { writable, get } from 'svelte/store'
+import { browser } from '$app/env'
 
 export const themes = ['light', 'dark', 'dracula']
-export const theme = writable(localStorage.getItem('theme') || themes[0])
+export const theme = writable(browser && localStorage.getItem('theme') || themes[0])
 
-document.body.classList.add(get(theme))
+browser && document.body.classList.add(get(theme))
 
 export const handleTheme = () => {
     let index = themes.indexOf(get(theme))
