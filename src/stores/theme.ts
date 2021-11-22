@@ -1,7 +1,7 @@
 import { writable, get } from 'svelte/store'
 import { browser } from '$app/env'
 
-export const themes = ['light', 'dark', 'dracula']
+export const themes = ['light', 'dark']
 export const theme = writable(browser && localStorage.getItem('theme') || themes[0])
 
 browser && document.body.classList.add(get(theme))

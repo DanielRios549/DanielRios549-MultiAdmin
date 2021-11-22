@@ -1,6 +1,6 @@
-<script context="module">
-    export async function load({page}) {
-		const name = page.params.name
+<script context="module" lang="ts">
+    export async function load(context) {
+		const name = context.page.params.name
 
 		return {
 			props: {

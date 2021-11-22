@@ -3,27 +3,90 @@
     background-color: var(--highlight);
     grid-area: menu;
     display: flex;
+    gap: 10px;
 
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
     #sites {
+        margin-top: 20px;
         ul {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            li:first-child {
+                margin-bottom: 30px;
 
-            li a {
-                border-radius: 50%;
-                background-color: var(--text);
-                color: var(--primary);
-                width: 60px;
-                height: 60px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: all 400ms ease;
-
-                &:hover {
+                &:after {
+                    content: '';
                     background-color: var(--secondary);
-                    color: var(--text);
+                    position: absolute;
+                    bottom: -20px;
+                    left: 20%;
+                    width: 60%;
+                    height: 2px;
+                }
+            }
+            li.current > a {
+                border-radius: 40%;
+    
+                &::before {
+                    height: 90%;
+                }
+            }
+            li:not(.current) a:hover {
+                &::before {
+                    height: 30px;
+                }
+            }
+            li {
+                position: relative;
+                margin-left: 15px;
+
+                a {
+                    border-radius: 50%;
+                    background-color: var(--text);
+                    color: var(--primary);
+                    width: 60px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all 400ms ease;
+
+                    &:hover {
+                        border-radius: 40%;
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: -15px;
+                        border-radius: 0 10px 10px 0;
+                        background-color: var(--text);
+                        width: 8px;
+                        height: 15px;
+                        transition: height 200ms ease;
+                    }
+                }
+            }
+        }
+    }
+    #options {
+        background-color: var(--secondary);
+        padding-top: 40px;
+        width: 100%;
+
+        ul {
+            li {
+                a {
+                    display: flex;
+                    align-items: center;
+                    height: 30px;
+                    text-indent: 20px;
+                    transition: all 200ms ease;
+
+                    &:hover {
+                        background-color: var(--primary);
+                    }
                 }
             }
         }
