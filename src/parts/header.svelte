@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {handleTheme} from '../stores/theme'
+    import {handleTheme} from '$stores/theme'
     import SVG from 'svelte-inline-svg'
 </script>
 

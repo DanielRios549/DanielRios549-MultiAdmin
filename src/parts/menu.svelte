@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { sites } from '../stores/sites'
+    import { sites } from '$stores/sites'
 </script>
 
 <section id="panel">
