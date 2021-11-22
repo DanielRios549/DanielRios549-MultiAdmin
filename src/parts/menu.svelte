@@ -1,14 +1,21 @@
-<script type="module" lang="ts">
-    
+<script lang="ts">
+    import { sites } from '../stores/sites'
 </script>
 
-<nav>
-    <ul>
-        <li><a href="/">Dashboard</a></li>
-        <li><a href="/sites">Sites</a></li>
-        <li><a href="/users">Users</a></li>
-    </ul>
-</nav>
+<section id="panel">
+    <nav id="sites">
+        <ul>
+            <li><a href="/">Network</a></li>
+            {#each $sites as site}
+                <li>
+                    <a href={`/site/${site.name.toLowerCase()}`}>{
+                        site.name
+                    }</a>
+                </li>
+            {/each}
+        </ul>
+    </nav>
+</section>
 
 <style lang="scss">
     @use '../styles/parts/menu.scss';

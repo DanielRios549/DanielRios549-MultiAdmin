@@ -1,5 +1,31 @@
-nav {
+#panel {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
     background-color: var(--highlight);
     grid-area: menu;
+    display: flex;
+
+    #sites {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            li a {
+                border-radius: 50%;
+                background-color: var(--text);
+                color: var(--primary);
+                width: 60px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 400ms ease;
+
+                &:hover {
+                    background-color: var(--secondary);
+                    color: var(--text);
+                }
+            }
+        }
+    }
 }

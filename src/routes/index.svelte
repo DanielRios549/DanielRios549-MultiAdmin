@@ -1,11 +1,9 @@
 <script lang="ts">
-	
+	const title: string = 'Home'
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>{title}</title>
 </svelte:head>
 
-<section>
-	<h1>Home</h1>
-</section>
+<h1>{title}</h1>

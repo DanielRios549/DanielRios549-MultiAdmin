@@ -1,7 +1,3 @@
-<script type="module" lang="ts">
-
-</script>
-
 <footer>
     <a href="/">Link</a>
 </footer>
