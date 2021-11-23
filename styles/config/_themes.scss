@@ -3,10 +3,12 @@
     --secondary: #aaaaaa;
     --text: #313131;
     --highlight: #d6d6d6;
+    --green: #05db4c;
 }
 :global(body.dark) {
     --primary: #181818;
     --secondary: #242526;
     --text: #d6d6d6;
     --highlight: #181818;
+    --green: #05db4c;
 }
