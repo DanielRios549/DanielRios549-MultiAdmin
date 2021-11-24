@@ -1,10 +1,16 @@
 <script lang="ts">
-    
+    import { clickInside, clickOutside } from '$lib/clickToggle'
+    let menuVisible = false
 </script>
 
 <header>
-    <menu>
-        <section><img src="/user.jpg" alt="User Image" width={40}/><span>User</span></section>
+    <section>Menu</section>
+    <input type="text" id="search" name="search" placeholder="Search"/>
+    <menu use:clickOutside={() => menuVisible = false} on:click={() => menuVisible = clickInside(menuVisible)} class:visible={menuVisible === true}>
+        <section>
+            <img src="/user.jpg" alt="UserImage" width={30}/>
+            <span>User</span>
+        </section>
         <ul>
             <li>Profile</li>
             <li>Settings</li>

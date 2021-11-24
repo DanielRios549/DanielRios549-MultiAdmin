@@ -2,13 +2,17 @@
     --primary: #d6d6d6;
     --secondary: #aaaaaa;
     --text: #313131;
+    --text2: #d6d6d6;
     --highlight: #d6d6d6;
-    --green: #05db4c;
+    --green: #04D361;
+    --radius: 5px;
 }
 :global(body.dark) {
-    --primary: #181818;
-    --secondary: #242526;
+    --primary: #121214;
+    --secondary: #202024;
     --text: #d6d6d6;
+    --text2: #121214;
     --highlight: #181818;
-    --green: #05db4c;
+    --green: #04D361;
+    --radius: 5px;
 }
