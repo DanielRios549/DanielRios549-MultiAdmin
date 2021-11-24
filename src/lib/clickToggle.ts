@@ -1,24 +1,29 @@
-export function clickInside(state: boolean) {
-    let newState = false
-
-    if (state === false) {
-        newState = true
+export function clickInside(element: HTMLElement) {
+    function onClick() {
+        element.nextElementSibling.classList.toggle('visible')
     }
-    return newState
-}
-
-export function clickOutside(element: HTMLElement, callback: () => void) {
-    function onClick(event: any) {
-        if (!element.contains(event.target)) {
-            callback()
-        }
-    }
-
-    document.body.addEventListener('click', onClick, true)
+    
+    element.addEventListener('click', onClick)
 
     return {
         destroy() {
-            document.body.removeEventListener('click', onClick, true)
+            element.removeEventListener('click', onClick)
+        }
+    }
+}
+
+export function clickOutside(element: HTMLElement) {
+    function onClick(event: any) {
+        if (!element.contains(event.target)) {
+            element.nextElementSibling.classList.remove('visible')
+        }
+    }
+
+    document.body.addEventListener('click', onClick)
+
+    return {
+        destroy() {
+            document.body.removeEventListener('click', onClick)
         }
     }
 }

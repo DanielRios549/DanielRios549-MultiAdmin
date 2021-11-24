@@ -1,64 +1,75 @@
 header {
+    --shadow: -2px 2px 10px rgba(0, 0, 0, .5);
     grid-area: header;
     position: sticky;
     top: 0;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
+    // Necessary to be global since class is added by an action
+
+    :global(.visible) {
+        top: 75px !important;
+        right: 10px;
+    }
+    > * {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    > *:last-child() {
+        align-items: flex-start;
+    }
     #search {
         height: 50px;
     }
-    menu.visible {
+    #userMenuToggle {
         box-shadow: var(--shadow);
-
-        ul {
-            top: 30px;
-            opacity: 1;
-        }
-    }
-    menu {
-        --shadow: -2px 2px 10px rgba(0, 0, 0, .5);
         border-radius: var(--radius);
         background-color: var(--secondary);
         min-width: 150px;
         height: 50px;
+        display: flex;
+        align-items: center;
         margin: 0 10px 0 0;
+        padding: 10px;
+        user-select: none;
+        cursor: pointer;
+        z-index: 100;
 
-        section {
-            display: flex;
-            height: 100%;
-            align-items: center;
-            z-index: 100;
-            padding: 10px;
-            user-select: none;
-            cursor: pointer;
-
-            img {
-                border-radius: var(--radius);
-            }
-            span {
-                color: var(--text);
-                display: flex;
-                flex-grow: 1;
-                justify-content: flex-end;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-            }
-        }
-        ul {
-            box-shadow: var(--shadow);
-            background-color: var(--secondary);
+        img {
             border-radius: var(--radius);
-            position: relative;
-            top: -200vh;
-            width: 150px;
-            opacity: 0;
+        }
+        span {
+            color: var(--text);
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            transition: opacity 300ms ease;
+            flex-grow: 1;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    #userMenu {
+        box-shadow: var(--shadow);
+        background-color: var(--secondary);
+        border-radius: var(--radius);
+        position: absolute;
+        top: -200vh;
+        width: 150px;
+        height: 0;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        transition: opacity 300ms ease;
+
+        ul {
+            border-radius: var(--radius);
+            width: 100%;
+            overflow: hidden;
 
             &::before {
                 content: '';
@@ -69,14 +80,6 @@ header {
                 border-left: 20px solid transparent;
                 border-right: 20px solid transparent;
                 border-bottom: 20px solid var(--secondary);
-            }
-            li:first-child {
-                border-top-left-radius: var(--radius);
-                border-top-right-radius: var(--radius);
-            }
-            li:last-child {
-                border-bottom-left-radius: var(--radius);
-                border-bottom-right-radius: var(--radius);
             }
             li {
                 height: 30px;
