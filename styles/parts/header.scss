@@ -66,21 +66,21 @@ header {
         align-items: flex-end;
         transition: opacity 300ms ease;
 
+        &::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: 20px;
+            border-top: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid var(--secondary);
+        }
         ul {
             border-radius: var(--radius);
             width: 100%;
             overflow: hidden;
 
-            &::before {
-                content: '';
-                position: absolute;
-                top: -40px;
-                right: 20px;
-                border-top: 20px solid transparent;
-                border-left: 20px solid transparent;
-                border-right: 20px solid transparent;
-                border-bottom: 20px solid var(--secondary);
-            }
             li {
                 height: 30px;
                 width: 100%;

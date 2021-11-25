@@ -3,8 +3,8 @@
     import { theme, handleTheme } from '$stores/theme'
     import { page } from '$app/stores'
 
-    import Dark from '$static/icons/dark.svg'
-    import Light from '$static/icons/light.svg'
+    import Dark from '$icons/dark.svg'
+    import Light from '$icons/light.svg'
 </script>
 
 <aside id="panel">

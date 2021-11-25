@@ -6,7 +6,7 @@
     <section id="pannelToggle">Menu</section>
     <input type="text" id="search" name="search" placeholder="Search"/>
     <section>
-        <div id="userMenuToggle" use:clickInside use:clickOutside>
+        <div use:clickInside use:clickOutside id="userMenuToggle">
             <img src="/user.jpg" alt="UserImage" width={30}/>
             <span>User</span>
         </div>
