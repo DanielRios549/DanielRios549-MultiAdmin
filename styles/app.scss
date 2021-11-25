@@ -3,7 +3,7 @@
 @use "./config/reset";
 
 
-:global(#app) {
+#app {
     background-color: var(--primary);
     font-family: sans-serif;
 
@@ -19,10 +19,13 @@
         grid-area: main;
         height: calc(100vh - 100px);
     }
-    :global(svg path) {
+    svg path {
         fill: var(--text) !important;
     }
-    :global(*.visible) {
+    button {
+        border: none;
+    }
+    *.visible {
         height: auto !important;
         opacity: 1 !important;
     }

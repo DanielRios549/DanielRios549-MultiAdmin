@@ -1,0 +1,22 @@
+#options {
+    background-color: var(--secondary);
+    padding-top: 40px;
+    width: 100%;
+
+    nav ul {
+        li {
+            a {
+                display: flex;
+                align-items: center;
+                height: 30px;
+                width: 100%;
+                text-indent: 20px;
+                transition: all 200ms ease;
+
+                &:hover {
+                    background-color: var(--primary);
+                }
+            }
+        }
+    }
+}

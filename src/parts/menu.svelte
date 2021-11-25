@@ -1,7 +1,8 @@
 <script lang="ts">
-    import { sites } from '$stores/sites'
+    import { network, sites } from '$stores/sites'
     import { theme, handleTheme } from '$stores/theme'
     import { page } from '$app/stores'
+    import Options from '$parts/options.svelte'
 
     import Dark from '$icons/dark.svg'
     import Light from '$icons/light.svg'
@@ -11,10 +12,14 @@
     <section id="sites">
         <nav>
             <ul>
-                <li class:current={$page.path === '/'}><a href="/">Network</a></li>
+                <li class:current={$page.path.split('/')[1] === `${network.name.toLowerCase()}`}>
+                    <a href={`/${network.name.toLowerCase()}/dashboard`} class="siteLink">{
+                        network.name
+                    }</a>
+                </li>
                 {#each $sites as site}
-                <li class:current={$page.path === `/site/${site.name.toLowerCase()}`}>
-                    <a href={`/site/${site.name.toLowerCase()}`}>{
+                <li class:current={$page.path.split('/')[1] === `${site.name.toLowerCase()}`}>
+                    <a href={`/${site.name.toLowerCase()}/dashboard`} class="siteLink">{
                         site.name
                     }</a>
                 </li>
@@ -32,17 +37,7 @@
             </label>
         </section>
     </section>
-    <section id="options">
-        <nav>
-            <ul>
-                <li><a href={`${$page.path}/dashboard`}>Dashboard</a></li>
-                <li><a href={`${$page.path}/posts`}>Posts</a></li>
-                <li><a href={`${$page.path}/pages`}>Pages</a></li>
-                <li><a href={`${$page.path}/tools`}>Tools</a></li>
-                <li><a href={`${$page.path}/settings`}>Settings</a></li>
-            </ul>
-        </nav>
-    </section>
+    <Options />
 </aside>
 
 <style lang="scss">

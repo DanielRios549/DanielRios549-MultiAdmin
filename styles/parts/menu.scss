@@ -36,7 +36,7 @@
                     height: 2px;
                 }
             }
-            li.current > a {
+            li.current > .siteLink {
                 border-radius: 40%;
     
                 &::before {
@@ -52,7 +52,7 @@
                 position: relative;
                 margin-left: 15px;
 
-                a {
+                .siteLink {
                     border-radius: 50%;
                     background-color: var(--text);
                     color: var(--primary);
@@ -61,6 +61,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    cursor: pointer;
                     transition: all 400ms ease;
 
                     &:hover {
@@ -112,28 +113,6 @@
                     border-radius: 50%;
                     height: 20px;
                     width: 20px;
-                }
-            }
-        }
-    }
-    #options {
-        background-color: var(--secondary);
-        padding-top: 40px;
-        width: 100%;
-
-        nav ul {
-            li {
-                a {
-                    display: flex;
-                    align-items: center;
-                    height: 30px;
-                    width: 100%;
-                    text-indent: 20px;
-                    transition: all 200ms ease;
-
-                    &:hover {
-                        background-color: var(--primary);
-                    }
                 }
             }
         }

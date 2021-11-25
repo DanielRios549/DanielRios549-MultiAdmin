@@ -12,6 +12,6 @@
 
 <Footer />
 
-<style lang="scss">
+<style lang="scss" global>
 	@use "../../styles/app.scss";
 </style>
