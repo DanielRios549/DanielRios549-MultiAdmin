@@ -2,16 +2,16 @@
 	import { page } from '$app/stores'
 
 	let site: string
-	let option: string
+	let section: string
 
 	$: {
 		site = $page.path.split('/')[1].charAt(0).toUpperCase() + $page.path.split('/')[1].slice(1)
-		option = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
+		section = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
 	}
 </script>
 
 <svelte:head>
-	<title>{site} - {option}</title>
+	<title>{site} - {section}</title>
 </svelte:head>
 
-<h1>{site} - {option}</h1>
+<h1>{site} - {section}</h1>
