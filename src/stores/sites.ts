@@ -4,17 +4,17 @@ import { browser } from '$app/env'
 
 export const network: Site = {
     'name':'Network',
-    'options': ['Dashboard', 'Settings']
+    'options': ['Dashboard', 'Users', 'Settings']
 }
 
 const defaultSites: Site[] =  [
     {
         'name':'Reakut',
-        'options': ['Dashboard', 'Posts', 'Pages', 'Tools', 'Settings']
+        'options': ['Dashboard', 'Posts', 'Pages', 'Users', 'Tools', 'Settings']
     },
     {
         'name': 'Second',
-        'options': ['Dashboard', 'Pages', 'Tools', 'Settings']
+        'options': ['Dashboard', 'Pages', 'Users', 'Tools', 'Settings']
     }
 ]
 

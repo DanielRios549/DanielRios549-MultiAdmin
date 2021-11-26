@@ -3,6 +3,7 @@
     import { network, sites } from "$stores/sites";
 
     let options: string[] = []
+    let link: any
 
     $: {
         const path = $page.path
@@ -14,6 +15,7 @@
         else {
             options = $sites.find(item => item.name.toLowerCase() === site).options
         }
+        link = (link: string) => $page.path.split('/')[2] === link.toLowerCase()
     }
 </script>
 
@@ -21,7 +23,11 @@
     <nav>
         <ul>
             {#each options as option}
-            <li><a href={`/${$page.path.split('/')[1]}/${option.toLowerCase()}`}>{option}</a></li>
+            <li class:current={link(option.toLowerCase())}>
+                <a href={`/${$page.path.split('/')[1]}/${option.toLowerCase()}`}>
+                    {option}
+                </a>
+            </li>
             {/each}
         </ul>
     </nav>

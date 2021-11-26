@@ -1,13 +1,17 @@
-<script context="module" lang="ts">
-    
-</script>
-
 <script lang="ts">
-	export let title: string
+	import { page } from '$app/stores'
+
+	let site: string
+	let option: string
+
+	$: {
+		site = $page.path.split('/')[1].charAt(0).toUpperCase() + $page.path.split('/')[1].slice(1)
+		option = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
+	}
 </script>
 
 <svelte:head>
-	<title>Dashboard</title>
+	<title>{site} - {option}</title>
 </svelte:head>
 
-<h1>Dashboard</h1>
+<h1>{site} - {option}</h1>

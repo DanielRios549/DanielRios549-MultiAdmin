@@ -4,6 +4,9 @@
     width: 100%;
 
     nav ul {
+        li.current {
+            background-color: var(--primary);
+        }
         li {
             a {
                 display: flex;
