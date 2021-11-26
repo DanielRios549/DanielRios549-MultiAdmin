@@ -15,6 +15,9 @@ const config = {
 			assets: 'build',
 			fallback: null
 		}),
+        files: {
+            routes: 'pages'
+        },
 		vite: {
 			plugins: [svg()],
 			resolve: {
