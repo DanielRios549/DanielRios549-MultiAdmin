@@ -13,7 +13,7 @@
         flex-direction: column;
         justify-content: space-between;
 
-        nav ul {
+        nav menu {
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -22,7 +22,7 @@
     #sites {
         margin-top: 20px;
 
-        nav ul {
+        nav menu {
             li:first-child {
                 margin-bottom: 30px;
 

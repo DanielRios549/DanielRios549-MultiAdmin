@@ -10,13 +10,13 @@
             <img src="/user.jpg" alt="UserImage" width={30}/>
             <span>User</span>
         </div>
-        <menu id="userMenu">
-            <ul>
+        <nav id="userMenu">
+            <menu>
                 <li>Profile</li>
                 <li>Settings</li>
                 <li>Logout</li>
-            </ul>
-        </menu>
+            </menu>
+        </nav>
     </section>
     
 </header>

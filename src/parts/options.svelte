@@ -21,7 +21,7 @@
 
 <section id="options">
     <nav>
-        <ul>
+        <menu>
             {#each options as option}
             <li class:current={link(option.toLowerCase())}>
                 <a href={`/${$page.path.split('/')[1]}/${option.toLowerCase()}`}>
@@ -29,7 +29,7 @@
                 </a>
             </li>
             {/each}
-        </ul>
+        </menu>
     </nav>
 </section>
 

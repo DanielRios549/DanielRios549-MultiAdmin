@@ -11,7 +11,7 @@
 <aside id="panel">
     <section id="sites">
         <nav>
-            <ul>
+            <menu>
                 <li class:current={$page.path.split('/')[1] === `${network.name.toLowerCase()}`}>
                     <a href={`/${network.name.toLowerCase()}/dashboard`} class="siteLink">{
                         network.name
@@ -24,7 +24,7 @@
                     }</a>
                 </li>
                 {/each}
-            </ul>
+            </menu>
         </nav>
         <section id="theme">
             <input hidden type="checkbox" checked={$theme === 'dark'} name="themeInput" id="themeInput" on:change={handleTheme}/>
