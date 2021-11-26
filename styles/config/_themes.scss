@@ -1,18 +1,16 @@
-:global(body.light) {
-    --primary: #d6d6d6;
-    --secondary: #aaaaaa;
+body.light {
+    --primary: #E3E5E8;
+    --secondary: #F2F3F5;
     --text: #313131;
-    --text2: #d6d6d6;
-    --highlight: #d6d6d6;
-    --green: #04D361;
+    --text2: #D6D6D6;
+    --highlight: #02A583;
     --radius: 5px;
 }
-:global(body.dark) {
-    --primary: #121214;
-    --secondary: #202024;
-    --text: #d6d6d6;
+body.dark {
+    --primary: #202225;
+    --secondary: #36393F;
+    --text: #D6D6D6;
     --text2: #121214;
-    --highlight: #181818;
-    --green: #04D361;
+    --highlight: #02A583;
     --radius: 5px;
 }

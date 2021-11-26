@@ -1,6 +1,6 @@
 #panel {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
-    background-color: var(--highlight);
+    background-color: var(--primary);
     position: sticky;
     top: 0;
     left: 0;
@@ -36,14 +36,21 @@
                     height: 2px;
                 }
             }
+            li.current > .siteLink,
+            li:not(.current) .siteLink:hover {
+                background-color: var(--highlight);
+                border-radius: 35%;
+
+                &::before {
+                    background-color: var(--highlight);
+                }
+            }
             li.current > .siteLink {
-                border-radius: 40%;
-    
                 &::before {
                     height: 90%;
                 }
             }
-            li:not(.current) a:hover {
+            li:not(.current) .siteLink:hover {
                 &::before {
                     height: 30px;
                 }
@@ -54,8 +61,8 @@
 
                 .siteLink {
                     border-radius: 50%;
-                    background-color: var(--text);
-                    color: var(--primary);
+                    background-color: var(--secondary);
+                    color: var(--text);
                     width: 60px;
                     height: 60px;
                     display: flex;
@@ -64,18 +71,15 @@
                     cursor: pointer;
                     transition: all 400ms ease;
 
-                    &:hover {
-                        border-radius: 40%;
-                    }
                     &::before {
                         content: '';
                         position: absolute;
                         left: -15px;
                         border-radius: 0 10px 10px 0;
-                        background-color: var(--text);
+                        background-color: var(--secondary);
                         width: 8px;
                         height: 15px;
-                        transition: height 200ms ease;
+                        transition: height 300ms ease;
                     }
                 }
             }
@@ -109,7 +113,7 @@
                 }
                 &:before {
                     content: '';
-                    background-color: var(--green);
+                    background-color: var(--highlight);
                     border-radius: 50%;
                     height: 20px;
                     width: 20px;

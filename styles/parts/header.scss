@@ -93,8 +93,8 @@ header {
                 color: var(--text);
 
                 &:hover {
-                    background-color: var(--text);
-                    color: var(--secondary);
+                    background-color: var(--highlight);
+                    color: var(--text2);
                 }
             }
         }
