@@ -9,17 +9,16 @@
     transition: all 300ms ease;
     display: grid;
     grid-template: 	
-        "menu header" 60px
-        "menu main" 1fr
-        "menu footer" 40px
+        "aside header" 60px
+        "aside main" 1fr
+        "aside footer" 40px
         / minmax(75px, 300px) minmax(600px, 1fr)
     ;
 
-    main.out {
-        grid-column-start: menu;
-        grid-column-end: main;
+    aside {
+        grid-area: aside;
     }
-    main:not(.out) {
+    main {
         grid-area: main;
         height: calc(100vh - 100px);
     }

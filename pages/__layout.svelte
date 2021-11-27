@@ -14,9 +14,7 @@
 	<Sites />
 {/if}
 
-<main class:out={noAuthPages.includes(path)}>
-	<slot />
-</main>
+<slot />
 
 <Footer />
 

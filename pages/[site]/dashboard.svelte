@@ -14,4 +14,6 @@
 	<title>{site} - {section}</title>
 </svelte:head>
 
-<h1>{site} - {section}</h1>
+<main>
+	<h1>{site} - {section}</h1>
+</main>

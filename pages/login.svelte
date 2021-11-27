@@ -6,7 +6,12 @@
 	<title>{title}</title>
 </svelte:head>
 
-<h1>{title}</h1>
+<aside>
+	
+</aside>
+<main>
+	<h1>{title}</h1>
+</main>
 
 <style lang="scss">
 	@use "../styles/pages/login.scss";

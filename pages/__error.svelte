@@ -7,8 +7,10 @@
 	<title>{title}</title>
 </svelte:head>
 
-<h1>{title}</h1>
-<p>{info}</p>
+<main>
+	<h1>{title}</h1>
+	<p>{info}</p>
+</main>
 
 <script context="module" lang="ts">
 	import type { ErrorLoad } from '@sveltejs/kit'
