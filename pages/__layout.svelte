@@ -1,12 +1,20 @@
 <script lang="ts">
+	import { page } from '$app/stores'
+	import Sites from '$parts/sites.svelte'
 	import Header from '$parts/header.svelte'
 	import Footer from '$parts/footer.svelte'
-	import Sites from '$parts/sites.svelte'
+
+	$: path = $page.path
+
+	const noAuthPages = ['/', '/login']
 </script>
 
-<Header />
-<Sites />
-<main>
+{#if !noAuthPages.includes(path)}
+	<Header />
+	<Sites />
+{/if}
+
+<main class:out={noAuthPages.includes(path)}>
 	<slot />
 </main>
 

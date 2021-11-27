@@ -6,16 +6,20 @@
 #app {
     background-color: var(--primary);
     font-family: sans-serif;
-
+    transition: all 300ms ease;
     display: grid;
-        grid-template: 
-            "menu header header" 60px
-            "menu main main" 1fr
-            "menu footer footer" 40px
-            / 300px minmax(600px, 800px) 1fr
-        ;
+    grid-template: 	
+        "menu header" 60px
+        "menu main" 1fr
+        "menu footer" 40px
+        / minmax(75px, 300px) minmax(600px, 1fr)
+    ;
 
-    main {
+    main.out {
+        grid-column-start: menu;
+        grid-column-end: main;
+    }
+    main:not(.out) {
         grid-area: main;
         height: calc(100vh - 100px);
     }
