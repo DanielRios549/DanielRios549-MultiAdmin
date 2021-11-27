@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Header from '$parts/header.svelte'
 	import Footer from '$parts/footer.svelte'
-	import Menu from '$parts/menu.svelte'
+	import Sites from '$parts/sites.svelte'
 </script>
 
 <Header />
-<Menu />
+<Sites />
 <main>
 	<slot />
 </main>

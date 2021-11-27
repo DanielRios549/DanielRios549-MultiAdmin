@@ -41,5 +41,5 @@
 </aside>
 
 <style lang="scss">
-    @use '../styles/parts/menu.scss';
+    @use '../styles/parts/sites.scss';
 </style>
