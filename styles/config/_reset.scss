@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 ::-webkit-scrollbar {
-    width: 0.6rem;
-    height: 0.6rem;
-    margin-right: 10px;
+    background-color: var(--primary);
+    width: 0.7em;
+    height: 0.7em;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 10px;
 }
 input[type="text"] {
     border-radius: var(--radius);

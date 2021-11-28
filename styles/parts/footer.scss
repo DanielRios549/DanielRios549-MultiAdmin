@@ -8,4 +8,11 @@ footer {
     gap: 5px;
     justify-content: flex-end;
     align-items: center;
+    
+    span {
+        color: var(--text);
+    }
+    a:hover {
+        text-decoration: underline;
+    }
 }

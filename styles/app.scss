@@ -15,6 +15,9 @@
         / minmax(75px, 300px) minmax(600px, 1fr)
     ;
 
+    aside:not(#panel) {
+        background-color: var(--secondary);
+    }
     aside {
         grid-area: aside;
     }

@@ -18,7 +18,6 @@
             </menu>
         </nav>
     </section>
-    
 </header>
 
 <style lang="scss">

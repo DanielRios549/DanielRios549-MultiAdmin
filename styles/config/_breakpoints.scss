@@ -1,8 +1,15 @@
+$large: 1400;
 $desktop: 970;
 $tablet: 750;
 $mobile: 550;
 
 // Apply for desktops
+
+@mixin desktopLarge {
+    @media (min-width: $large + 1 + 'px') {
+        @content;
+    }
+}
 
 @mixin desktop() {
     @media (min-width: $desktop + 1 + 'px') {
