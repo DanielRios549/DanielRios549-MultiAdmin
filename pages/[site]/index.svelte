@@ -1,5 +1,7 @@
 <script lang="ts">
-    import Dashboard from './dashboard.svelte'
-</script>
+    import { goto } from '$app/navigation'
+	import { page } from '$app/stores'
+    import { onMount } from 'svelte'
 
-<Dashboard />
+    onMount(() => goto(`${$page.path}/dashboard`))
+</script>
