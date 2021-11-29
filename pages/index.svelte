@@ -2,22 +2,33 @@
 	import { browser } from '$app/env'
 	import { network, sites } from '$stores/sites'
 
-	
 	const title: string = 'Home'
-	const list = browser && document.querySelector<HTMLElement>('#sites')
 
-	$: menuLeft = browser && parseInt(list.style.left)
-	$: menuWidth = browser && list.scrollWidth
+	$: auth = false
+	$: menuLeft = (item: HTMLElement): number => browser && parseInt(item.style.left)
+	$: menuWidth = (item: HTMLElement): number => browser && item.scrollWidth
+
+	const getList = () => {
+		return browser && document.querySelector<HTMLElement>('#sites')
+	}
 
 	const rollBack = () => {
-		if (menuLeft < 0) {
-			list.style.left = `${menuLeft + 300}px`
+		const list = getList()
+
+		if (menuLeft(list) < 0) {
+			list.style.left = `${menuLeft(list) + 300}px`
 		}
 	}
 	const rollNext = () => {
-		if (Math.abs(menuLeft) <= menuWidth - 900) {
-			list.style.left = `${menuLeft - 300}px`
+		const list = getList()
+
+		if (Math.abs(menuLeft(list)) <= menuWidth(list) - 900) {
+			list.style.left = `${menuLeft(list) - 300}px`
 		}
+	}
+	const hangleLogin = (event: any) => {
+		event.preventDefault()
+		auth = true
 	}
 </script>
 
@@ -26,10 +37,19 @@
 </svelte:head>
 
 <aside>
+	{#if !auth}
+	<p class="info">Enter with your account</p>
+	<form on:submit={hangleLogin}>
+		<input type="text" name="user" id="user">
+		<button type="submit">Enter</button>
+	</form>
+	{:else}
 	<p class="info">Choose a site to manage.</p>
 	<button>Avaiable Sites</button>
+	{/if}
 </aside>
 <main>
+	{#if auth}
 	<button id="back" on:click={rollBack}>{'<'}</button>
 	<button id="next" on:click={rollNext}>{'>'}</button>
 	<nav>
@@ -50,6 +70,7 @@
 			{/each}
 		</menu>
 	</nav>
+	{/if}
 </main>
 
 <style lang="scss">

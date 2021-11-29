@@ -17,24 +17,31 @@ aside {
     align-items: center;
     text-align: center;
 
-    p,
-    button {
+    > * {
         color: var(--text);
         z-index: 100;
+        position: relative;
+        left: 50%;
+        width: 300px;
     }
     p {
         text-shadow: var(--shadow);
-        position: relative;
-        left: 50%;
         font-size: 2.5em;
     }
     button {
         background-color: var(--primary);
         height: 80px;
-        width: 300px;
-        position: relative;
-        left: 50%;
         font-size: 1.2em;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        input {
+            border: 2px solid var(--text);
+            background-color: var(--primary);
+        }
     }
 }
 main {
