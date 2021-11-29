@@ -4,8 +4,6 @@ import { browser } from '$app/env'
 export const themes = ['light', 'dark']
 export const theme = writable(browser && localStorage.getItem('theme') || themes[0])
 
-browser && document.body.classList.add(get(theme))
-
 export const handleTheme = () => {
     let index = themes.indexOf(get(theme))
     let newTheme = 'none'
@@ -21,5 +19,3 @@ export const handleTheme = () => {
     localStorage.setItem('theme', newTheme)
     theme.set(newTheme)
 }
-
-export const ssr = false

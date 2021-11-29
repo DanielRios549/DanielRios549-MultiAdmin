@@ -4,7 +4,6 @@
 
 
 #app {
-    background-color: var(--primary);
     font-family: sans-serif;
     transition: all 300ms ease;
     display: grid;
@@ -14,16 +13,25 @@
         "aside footer" 40px
         / minmax(75px, 300px) minmax(600px, 1fr)
     ;
-
-    aside:not(#panel) {
+    > * {
+        background-color: var(--primary);
+    }
+    > header {
+        grid-area: header;
+    }
+    > aside:not(#panel) {
         background-color: var(--secondary);
     }
-    aside {
+    > aside {
         grid-area: aside;
+        z-index: 100;
     }
-    main {
+    > main {
         grid-area: main;
         height: calc(100vh - 100px);
+    }
+    > footer {
+        grid-area: footer;
     }
     svg path {
         fill: var(--text) !important;

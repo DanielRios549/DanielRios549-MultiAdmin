@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/env'
 	import { network, sites } from '$stores/sites'
 	import { clickPrev, clickNext } from  '$lib/clickScroll'
 
