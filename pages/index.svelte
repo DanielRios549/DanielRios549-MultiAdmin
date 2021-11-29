@@ -1,31 +1,12 @@
 <script lang="ts">
 	import { browser } from '$app/env'
 	import { network, sites } from '$stores/sites'
+	import { clickPrev, clickNext } from  '$lib/clickScroll'
 
 	const title: string = 'Home'
 
 	$: auth = false
-	$: menuLeft = (item: HTMLElement): number => browser && parseInt(item.style.left)
-	$: menuWidth = (item: HTMLElement): number => browser && item.scrollWidth
 
-	const getList = () => {
-		return browser && document.querySelector<HTMLElement>('#sites')
-	}
-
-	const rollBack = () => {
-		const list = getList()
-
-		if (menuLeft(list) < 0) {
-			list.style.left = `${menuLeft(list) + 300}px`
-		}
-	}
-	const rollNext = () => {
-		const list = getList()
-
-		if (Math.abs(menuLeft(list)) <= menuWidth(list) - 900) {
-			list.style.left = `${menuLeft(list) - 300}px`
-		}
-	}
 	const hangleLogin = (event: any) => {
 		event.preventDefault()
 		auth = true
@@ -50,8 +31,8 @@
 </aside>
 <main>
 	{#if auth}
-	<button id="back" on:click={rollBack}>{'<'}</button>
-	<button id="next" on:click={rollNext}>{'>'}</button>
+	<button use:clickPrev={'#sites'} id="back">{'<'}</button>
+	<button use:clickNext={'#sites'} id="next">{'>'}</button>
 	<nav>
 		<menu id="sites" style="left: 0">
 			<li>
