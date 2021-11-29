@@ -7,6 +7,14 @@ function listInfo(list: HTMLElement) {
     return {left, width}
 }
 
+/**
+ * Scroll an element to right
+ * 
+ * @param element The element that uses the action, should not be passed.
+ * @param itemToScroll The element that needs to be scrolled, pass a CSS Selector.
+ * @returns Nothing, just remove Event Listenner
+ */
+
 export function clickNext(element: HTMLElement, itemToScroll: string) {
     const list = browser && document.querySelector<HTMLElement>(itemToScroll)
 
@@ -26,6 +34,14 @@ export function clickNext(element: HTMLElement, itemToScroll: string) {
         }
     }
 }
+
+/**
+ * Scroll an element to left
+ * 
+ * @param element The element that uses the action, should not be passed.
+ * @param itemToScroll The element that needs to be scrolled, pass a CSS Selector.
+ * @returns Nothing, just remove Event Listenner
+ */
 
 export function clickPrev(element: HTMLElement, itemToScroll: string) {
     const list = browser && document.querySelector<HTMLElement>(itemToScroll)
