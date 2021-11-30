@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
+	import Card from '$components/card.svelte'
 
 	let site: string
 	let section: string
@@ -16,4 +17,13 @@
 
 <main>
 	<h1>{site} - {section}</h1>
+	<article id="cards">
+		<Card />
+		<Card />
+		<Card />
+	</article>
 </main>
+
+<style lang="scss">
+	@use "../../styles/pages/dashboard.scss";
+</style>

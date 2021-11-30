@@ -23,6 +23,7 @@ const config = {
 			resolve: {
 				alias: {
 					'$stores': path.resolve('./src/stores'),
+					'$components': path.resolve('./src/components'),
 					'$parts': path.resolve('./src/parts'),
 					'$icons': path.resolve('./src/icons')
 				}

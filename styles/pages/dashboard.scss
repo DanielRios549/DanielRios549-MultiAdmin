@@ -1,0 +1,9 @@
+main {
+    color: var(--text);
+    padding: 0 0 0 20px;
+
+    #cards {
+        display: flex;
+        gap: 10px;
+    }
+}

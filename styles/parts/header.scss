@@ -1,5 +1,4 @@
 header {
-    --shadow: -2px 2px 10px rgba(0, 0, 0, .5);
     position: sticky;
     top: 0;
     padding: 10px 0;
@@ -22,6 +21,7 @@ header {
         align-items: flex-start;
     }
     #search {
+        box-shadow: var(--shadow);
         height: 50px;
     }
     #userMenuToggle {
