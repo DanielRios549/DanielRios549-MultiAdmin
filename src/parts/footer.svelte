@@ -7,5 +7,18 @@
 </footer>
 
 <style lang="scss">
-    @use '../../styles/parts/footer.scss';
+    #footer {
+        padding-right: 20px;
+        display: flex;
+        gap: 5px;
+        justify-content: flex-end;
+        align-items: center;
+        
+        span {
+            color: var(--text);
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
 </style>

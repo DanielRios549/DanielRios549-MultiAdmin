@@ -6,13 +6,13 @@ $mobile: 550;
 // Apply for desktops
 
 @mixin desktopLarge {
-    @media (min-width: $large + 1 + 'px') {
+    @media (min-width: ($large + 1 + 'px')) {
         @content;
     }
 }
 
 @mixin desktop() {
-    @media (min-width: $desktop + 1 + 'px') {
+    @media (min-width: ($desktop + 1 + 'px')) {
         @content;
     }
 }
@@ -20,7 +20,7 @@ $mobile: 550;
 //Apply for tablets
 
 @mixin tablet() {
-    @media (min-width: $tablet + 1 + 'px') and (max-width: $desktop + 'px') {
+    @media (min-width: ($tablet + 1 + 'px')) and (max-width: ($desktop + 'px')) {
         @content;
     }
 }
@@ -28,7 +28,7 @@ $mobile: 550;
 // Apply for tablets and smartphones
 
 @mixin touch() {
-    @media (max-width: $desktop + 'px') {
+    @media (max-width: ($desktop + 'px')) {
         @content;
     }
 }
@@ -36,7 +36,7 @@ $mobile: 550;
 // Apply for smartphones in landscape and portrait modes
 
 @mixin mobile() {
-    @media (max-width: $tablet + 'px') {
+    @media (max-width: ($tablet + 'px')) {
         @content;
     }
 }
@@ -44,7 +44,7 @@ $mobile: 550;
 // Apply for smartphones in landscape mode
 
 @mixin mobileLarge() {
-    @media (min-width: $mobile + 1 + 'px') and (max-width: $tablet + 'px') {
+    @media (min-width: ($mobile + 1 + 'px')) and (max-width: ($tablet + 'px')) {
         @content;
     }
 }
@@ -52,7 +52,7 @@ $mobile: 550;
 // Apply for smartphones in portrait mode
 
 @mixin mobileSmall() {
-    @media (max-width: $mobile + 'px') {
+    @media (max-width: ($mobile + 'px')) {
         @content;
     }
 }

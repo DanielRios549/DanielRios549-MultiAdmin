@@ -35,5 +35,29 @@
 
 
 <style lang="scss">
-    @use '../styles/parts/options.scss';
+    #options {
+        background-color: var(--secondary);
+        padding-top: 40px;
+        width: 100%;
+
+        nav menu {
+            li.current {
+                background-color: var(--primary);
+            }
+            li {
+                a {
+                    display: flex;
+                    align-items: center;
+                    height: 30px;
+                    width: 100%;
+                    text-indent: 20px;
+                    transition: all 200ms ease;
+
+                    &:hover {
+                        background-color: var(--primary);
+                    }
+                }
+            }
+        }
+    }
 </style> 
