@@ -3,7 +3,6 @@
 </script>
 
 <header id="header">
-    <section id="pannelToggle">Menu</section>
     <input type="text" id="search" name="search" placeholder="Search"/>
     <section>
         <div use:clickInside use:clickOutside id="userMenuToggle">
@@ -28,11 +27,8 @@
         align-items: center;
         z-index: 100;
 
-        // Necessary to be global since class is added by an action
-
         :global(.visible) {
-            top: 85px !important;
-            right: 10px;
+            top: 75px !important;
         }
         > *:last-child() {
             align-items: flex-start;
@@ -40,6 +36,7 @@
         #search {
             box-shadow: var(--shadow);
             height: 50px;
+            margin: 0 auto;
         }
         #userMenuToggle {
             box-shadow: var(--shadow);
@@ -68,12 +65,15 @@
                 height: 100%;
             }
         }
+        #userMenu:not(.visible) {
+            top: -200vh;
+        }
         #userMenu {
             box-shadow: var(--shadow);
             background-color: var(--secondary);
             border-radius: var(--radius);
             position: absolute;
-            top: -200vh;
+            right: 10px;
             width: 150px;
             height: 0;
             opacity: 0;

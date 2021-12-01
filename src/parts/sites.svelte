@@ -12,14 +12,14 @@
     <section id="sites">
         <nav>
             <menu>
-                <li class:current={$page.path.split('/')[1] === `${network.name.toLowerCase()}`}>
-                    <a href={`/${network.name.toLowerCase()}/dashboard`} class="siteLink">{
+                <li class:current={$page.path.split('/')[1] === network.name.toLowerCase()}>
+                    <a href="/{network.name.toLowerCase()}/dashboard" class="siteLink">{
                         network.name
                     }</a>
                 </li>
                 {#each $sites as site}
-                <li class:current={$page.path.split('/')[1] === `${site.name.toLowerCase()}`}>
-                    <a href={`/${site.name.toLowerCase()}/dashboard`} class="siteLink">{
+                <li class:current={$page.path.split('/')[1] === site.name.toLowerCase()}>
+                    <a href="/{site.name.toLowerCase()}/dashboard" class="siteLink">{
                         site.name
                     }</a>
                 </li>
@@ -44,9 +44,6 @@
     #panel {
         box-shadow: var(--shadow);
         background-color: var(--primary);
-        position: sticky;
-        top: 0;
-        left: 0;
         display: flex;
         gap: 10px;
 

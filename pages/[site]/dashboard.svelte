@@ -19,7 +19,7 @@
 	<article id="banner">
 		<header>
 			<h1>{site} - {section}</h1>
-			<img src={`/sites/banner/${site.toLocaleLowerCase()}.jpg`} alt="NetworkBanner" height={300}/>
+			<img src="/sites/banner/{site.toLocaleLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
 		</header>
 	</article>
 	<article class="cards">

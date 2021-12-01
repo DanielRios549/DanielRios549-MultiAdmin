@@ -36,14 +36,14 @@
 	<nav>
 		<menu id="sites" style="left: 0">
 			<li in:fly={{ x: 200, duration: 600 }}>
-				<a href={`${network.link}/dashboard`}>
+				<a href="{network.link}/dashboard">
 					<img src="" alt="">
 					<span>{network.name}</span>
 				</a>
 			</li>
 			{#each $sites as site, index}
 				<li in:fly={{ x: 200 * (index + 2), duration: 600 }}>
-					<a href={`${site.link}/dashboard`}>
+					<a href="{site.link}/dashboard">
 						<img src="" alt="">
 						<span>{site.name}</span>
 					</a>

@@ -12,7 +12,7 @@
         "aside header" 60px
         "aside main" 1fr
         "aside footer" 40px
-        / minmax(75px, 300px) minmax(600px, 1fr)
+        / min-content minmax(600px, 1fr)
     ;
     > * {
         background-color: var(--primary);

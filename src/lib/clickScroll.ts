@@ -1,8 +1,6 @@
-import { browser } from '$app/env'
-
 function listInfo(list: HTMLElement) {
-    const left = browser && parseInt(list.style.left)
-	const width = browser && list.scrollWidth
+    const left = parseInt(list.style.left)
+	const width = list.scrollWidth
 
     return {left, width}
 }
@@ -16,7 +14,7 @@ function listInfo(list: HTMLElement) {
  */
 
 export function clickNext(element: HTMLElement, itemToScroll: string) {
-    const list = browser && document.querySelector<HTMLElement>(itemToScroll)
+    const list = document.querySelector<HTMLElement>(itemToScroll)
 
     function onClick() {
         const {left, width} = listInfo(list)
@@ -44,7 +42,7 @@ export function clickNext(element: HTMLElement, itemToScroll: string) {
  */
 
 export function clickPrev(element: HTMLElement, itemToScroll: string) {
-    const list = browser && document.querySelector<HTMLElement>(itemToScroll)
+    const list = document.querySelector<HTMLElement>(itemToScroll)
 
     function onClick() {
         const {left} = listInfo(list)

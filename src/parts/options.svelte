@@ -1,6 +1,8 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { network, sites } from "$stores/sites";
+    import { network, sites } from '$stores/sites'
+    import { clickInside } from '$lib/clickToggle'
+    import Menu from '$icons/menu.svg'
 
     let options: string[] = []
     let link: any
@@ -19,12 +21,15 @@
     }
 </script>
 
-<section id="options">
+<section id="options" class="visible">
+    <section use:clickInside={'#options'} id="pannelToggle">
+        <Menu />
+    </section>
     <nav>
         <menu>
             {#each options as option}
             <li class:current={link(option.toLowerCase())}>
-                <a href={`/${$page.path.split('/')[1]}/${option.toLowerCase()}`}>
+                <a href="/{$page.path.split('/')[1]}/{option.toLowerCase()}">
                     {option}
                 </a>
             </li>
@@ -35,11 +40,28 @@
 
 
 <style lang="scss">
+    #options:not(.visible) {
+        width: 50px;
+    }
+    #options.visible {
+        width: 250px;
+    }
     #options {
         background-color: var(--secondary);
-        padding-top: 40px;
-        width: 100%;
+        overflow-x: hidden;
+        transition: width 300ms ease;
 
+        #pannelToggle {
+            border-radius: var(--radius);
+            background-color: var(--secondary);
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+        }
         nav menu {
             li.current {
                 background-color: var(--primary);
@@ -48,9 +70,9 @@
                 a {
                     display: flex;
                     align-items: center;
-                    height: 30px;
+                    height: 50px;
                     width: 100%;
-                    text-indent: 20px;
+                    text-indent: 50px;
                     transition: all 200ms ease;
 
                     &:hover {
