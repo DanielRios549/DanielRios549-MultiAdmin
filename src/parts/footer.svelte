@@ -1,4 +1,4 @@
-<footer>
+<footer id="footer">
     <span>
         Made by
     </span>

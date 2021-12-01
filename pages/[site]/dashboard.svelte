@@ -16,8 +16,13 @@
 </svelte:head>
 
 <main>
-	<h1>{site} - {section}</h1>
-	<article id="cards">
+	<article id="banner">
+		<header>
+			<h1>{site} - {section}</h1>
+			<img src={`/sites/banner/${site.toLocaleLowerCase()}.jpg`} alt="NetworkBanner" height={300}/>
+		</header>
+	</article>
+	<article class="cards">
 		<Card />
 		<Card />
 		<Card />

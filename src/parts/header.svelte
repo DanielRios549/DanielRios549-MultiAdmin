@@ -2,7 +2,7 @@
     import { clickInside, clickOutside } from '$lib/clickToggle'
 </script>
 
-<header>
+<header id="header">
     <section id="pannelToggle">Menu</section>
     <input type="text" id="search" name="search" placeholder="Search"/>
     <section>

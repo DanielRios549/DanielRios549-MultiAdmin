@@ -1,21 +1,15 @@
-header {
-    position: sticky;
-    top: 0;
+#header {
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 100;
 
     // Necessary to be global since class is added by an action
 
     :global(.visible) {
-        top: 75px !important;
+        top: 85px !important;
         right: 10px;
-    }
-    > * {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
     > *:last-child() {
         align-items: flex-start;

@@ -4,6 +4,8 @@
 
 
 #app {
+    height: 100vh;
+    overflow: hidden;
     font-family: sans-serif;
     display: grid;
     grid-template: 	
@@ -27,7 +29,7 @@
     }
     > main {
         grid-area: main;
-        height: calc(100vh - 100px);
+        overflow: auto;
     }
     > footer {
         grid-area: footer;
