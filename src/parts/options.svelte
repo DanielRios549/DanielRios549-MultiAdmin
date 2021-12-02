@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { network, sites } from '$stores/sites'
+    import { network, sites, icons } from '$stores/sites'
     import { clickInside } from '$lib/clickToggle'
     import Menu from '$icons/menu.svg'
 
@@ -30,6 +30,7 @@
             {#each options as option}
             <li class:current={link(option.toLowerCase())}>
                 <a href="/{$page.path.split('/')[1]}/{option.toLowerCase()}">
+                    <svelte:component this={icons[option.toLocaleLowerCase()]}/>
                     {option}
                 </a>
             </li>
@@ -53,7 +54,6 @@
 
         #pannelToggle {
             border-radius: var(--radius);
-            background-color: var(--secondary);
             width: 50px;
             height: 50px;
             cursor: pointer;
@@ -67,16 +67,23 @@
                 background-color: var(--primary);
             }
             li {
+                user-select: none;
+
                 a {
+                    position: relative;
                     display: flex;
                     align-items: center;
                     height: 50px;
                     width: 100%;
                     text-indent: 50px;
-                    transition: all 200ms ease;
+                    transition: background-color 200ms ease;
 
                     &:hover {
                         background-color: var(--primary);
+                    }
+                    :global(svg) {
+                        position: absolute;
+                        left: 10px;
                     }
                 }
             }

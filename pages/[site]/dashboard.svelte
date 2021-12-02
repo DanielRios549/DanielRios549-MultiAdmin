@@ -59,6 +59,7 @@
 					align-items: center;
 					text-indent: 20px;
 					z-index: 98;
+					color: #D6D6D6;
 				}
 				img {
 					object-fit: cover;
