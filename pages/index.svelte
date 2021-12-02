@@ -37,14 +37,14 @@
 		<menu id="sites" style="left: 0">
 			<li in:fly={{ x: 200, duration: 600 }}>
 				<a href="{network.link}/dashboard">
-					<img src="" alt="">
+					<img src="/sites/portrait/{network.name.toLowerCase()}.jpg" alt="NetworkImage">
 					<span>{network.name}</span>
 				</a>
 			</li>
 			{#each $sites as site, index}
 				<li in:fly={{ x: 200 * (index + 2), duration: 600 }}>
 					<a href="{site.link}/dashboard">
-						<img src="" alt="">
+						<img src="/sites/portrait/{site.name.toLowerCase()}.jpg" alt="{site.name}Image">
 						<span>{site.name}</span>
 					</a>
 				</li>
@@ -152,19 +152,30 @@
 					box-shadow: var(--shadow);
 					background-color: var(--secondary);
 					border-radius: var(--radius);
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
+					display: grid;
+					grid-template-columns: 1fr;
+					grid-template-rows: 1fr 50px;
 					height: 500px;
 					width: 280px;
 					transition: all 300ms ease;
+					overflow: hidden;
+					z-index: 99;
 
 					&:hover {
 						transform: scale(1.3) rotate(1.5deg);
 						z-index: 100;
 					}
+					img {
+						object-fit: cover;
+						grid-column: 1;
+						grid-row: 1/3;
+						z-index: 97;
+					}
 					span {
 						padding: 0 0 10px 10px;
+						grid-column: 1;
+						grid-row: 2/3;
+						z-index: 98;
 					}
 				}
 			}
