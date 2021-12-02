@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
+    import { toggleClass } from '$lib/scrollChange'
 	import Card from '$components/card.svelte'
 
 	let site: string
@@ -15,7 +16,7 @@
 	<title>{site} - {section}</title>
 </svelte:head>
 
-<main>
+<main use:toggleClass={{ scroll: 250, class: 'fixed', item: '#header' }}>
 	<article id="banner">
 		<header>
 			<h1>{site} - {section}</h1>
@@ -30,15 +31,18 @@
 </main>
 
 <style lang="scss">
-	:global(#header) {
-		background-color: transparent !important;
+	:global {
+		#header:not(.fixed) {
+			background-color: transparent !important;
+		}
+		#header.fixed {
+			box-shadow: var(--shadow);
+		}
 	}
 	main {
-		height: calc(100vh - 100px);
 		grid-row: header/main !important;
 		color: var(--text);
 		padding: 0 0 20px 20px;
-		height: 100%;
 
 		#banner {
 			position: relative;

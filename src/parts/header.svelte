@@ -1,13 +1,14 @@
 <script lang="ts">
     import { clickInside, clickOutside } from '$lib/clickToggle'
+    import Users from '$icons/users.svg'
 </script>
 
 <header id="header">
     <input type="text" id="search" name="search" placeholder="Search"/>
     <section>
         <div use:clickInside use:clickOutside id="userMenuToggle">
-            <img src="/user.jpg" alt="UserImage" width={30}/>
-            <span>User</span>
+            <span class="icon"><Users/></span>
+            <span class="name">User</span>
         </div>
         <nav id="userMenu">
             <menu>
@@ -52,10 +53,14 @@
             cursor: pointer;
             z-index: 100;
 
-            img {
+            .icon {
+                background-color: var(--primary);
                 border-radius: var(--radius);
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
-            span {
+            .name {
                 color: var(--text);
                 display: flex;
                 flex-grow: 1;
