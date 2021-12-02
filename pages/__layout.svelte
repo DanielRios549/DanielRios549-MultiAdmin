@@ -19,11 +19,12 @@
 
 {#if ready === true}
 <Header />
+
+<slot />
+
 {#if !noAuthPages.includes(path)}
 	<Sites />
 {/if}
-
-<slot />
 
 <Footer />
 {/if}

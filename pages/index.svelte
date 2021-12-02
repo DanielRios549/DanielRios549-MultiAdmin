@@ -17,18 +17,6 @@
 	<title>{title}</title>
 </svelte:head>
 
-<aside>
-	{#if !auth}
-	<p class="info">Enter with your account</p>
-	<form on:submit={hangleLogin}>
-		<input type="text" name="user" id="user">
-		<button type="submit">Enter</button>
-	</form>
-	{:else}
-	<p class="info">Choose a site to manage.</p>
-	<button>Avaiable Sites</button>
-	{/if}
-</aside>
 <main>
 	{#if auth}
 	<button use:clickPrev={'#sites'} id="back">{'<'}</button>
@@ -53,6 +41,18 @@
 	</nav>
 	{/if}
 </main>
+<aside>
+	{#if !auth}
+	<p class="info">Enter with your account</p>
+	<form on:submit={hangleLogin}>
+		<input type="text" name="user" id="user">
+		<button type="submit">Enter</button>
+	</form>
+	{:else}
+	<p class="info">Choose a site to manage.</p>
+	<button>Avaiable Sites</button>
+	{/if}
+</aside>
 
 <style lang="scss">
 	@import "../styles/breakpoints";
@@ -109,20 +109,20 @@
 		justify-content: flex-end;
 
 		button#back {
-			right: 80px;
+			right: 120px;
 		}
 		button#next {
-			right: 10px;
+			right: 50px;
 		}
 		button {
 			background-color: var(--secondary);
 			position: absolute;
-			top: 20px;
+			top: 100px;
 			border-radius: 50%;
 			height: 50px;
 			width: 50px;
-			margin-right: 60px;
 			transition: transform 300ms ease;
+			z-index: 99;
 
 			&:hover {
 				transform: scale(1.3);
@@ -130,8 +130,8 @@
 		}
 		nav {
 			position: relative;
+			top: 80px;
 			height: 90%;
-			margin-top: 70px;
 			width: 700px;
 			overflow: hidden;
 			
@@ -139,8 +139,7 @@
 				width: 900px;
 			}
 			menu {
-				position: absolute;
-				left: 0;
+				position: relative;
 				height: 100%;
 				padding: 0 70px;
 				display: flex;

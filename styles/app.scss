@@ -5,7 +5,6 @@
 
 #app {
     height: 100vh;
-    overflow: hidden;
     font-family: sans-serif;
     display: grid;
     grid-template: 	
@@ -17,7 +16,13 @@
     > * {
         background-color: var(--primary);
     }
-    > header {
+    >  header:not(.fixed) {
+        background-color: transparent !important;
+    }
+    >  header.fixed {
+        box-shadow: var(--shadow);
+    }
+    >  header {
         grid-area: header;
     }
     > aside:not(#panel) {
@@ -29,6 +34,7 @@
     }
     > main {
         grid-area: main;
+		grid-row: header/main;
         overflow: auto;
     }
     > footer {

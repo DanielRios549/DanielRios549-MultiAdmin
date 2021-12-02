@@ -31,16 +31,7 @@
 </main>
 
 <style lang="scss">
-	:global {
-		#header:not(.fixed) {
-			background-color: transparent !important;
-		}
-		#header.fixed {
-			box-shadow: var(--shadow);
-		}
-	}
 	main {
-		grid-row: header/main !important;
 		color: var(--text);
 		padding: 0 0 20px 20px;
 
