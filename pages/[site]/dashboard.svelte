@@ -17,52 +17,17 @@
 </svelte:head>
 
 <main use:toggleClass={{ scroll: 250, class: 'fixed', item: '#header' }}>
-    <article id="banner">
+    <section id="banner">
         <header>
             <h1>{site} - {section}</h1>
             <img src="/sites/banner/{site.toLocaleLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
         </header>
-    </article>
-    <article class="cards">
+    </section>
+    <section class="cards">
         <Card />
         <Card />
         <Card />
-    </article>
-    <article class="cards">
-        <Card />
-        <Card />
-        <Card />
-    </article>
-    <article class="cards">
-        <Card />
-        <Card />
-        <Card />
-    </article>
-    <article class="cards">
-        <Card />
-        <Card />
-        <Card />
-    </article>
-    <article class="cards">
-        <Card />
-        <Card />
-        <Card />
-    </article>
-    <article class="cards">
-        <Card />
-        <Card />
-        <Card />
-    </article>
-    <article class="cards">
-        <Card />
-        <Card />
-        <Card />
-    </article>
-    <article class="cards">
-        <Card />
-        <Card />
-        <Card />
-    </article>
+    </section>
 </main>
 
 <style lang="scss">
@@ -82,7 +47,7 @@
                 grid-template-rows: 1fr 50px;
                 
                 h1 {
-                    background-color: rgba(0, 0, 0, .6);    
+                    background-color: rgba(0, 0, 0, .6);
                     grid-column: 1/2;
                     grid-row: 2;
                     display: flex;

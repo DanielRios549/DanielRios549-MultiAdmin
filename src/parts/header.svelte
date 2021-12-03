@@ -1,16 +1,30 @@
 <script lang="ts">
     import { clickInside, clickOutside } from '$lib/clickToggle'
+    import Notifications from '$icons/notifications.svg'
     import Users from '$icons/users.svg'
 </script>
 
 <header id="header">
     <input type="text" id="search" name="search" placeholder="Search"/>
     <section>
+        <div use:clickInside use:clickOutside id="notificationsToggle">
+            <Notifications/>
+        </div>
+        <article id="notifications" class="itemToggle">
+            <header>
+                <h3>Notifications</h3>
+            </header>
+            <div id="content" class="none">
+                <span>Nothing to show</span>
+            </div>
+        </article>
+    </section>
+    <section>
         <div use:clickInside use:clickOutside id="userMenuToggle">
             <span class="icon"><Users/></span>
             <span class="name">User</span>
         </div>
-        <nav id="userMenu">
+        <nav id="userMenu" class="itemToggle">
             <menu>
                 <li>Profile</li>
                 <li>Settings</li>
@@ -26,6 +40,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 10px;
         z-index: 100;
 
         :global(.visible) {
@@ -34,10 +49,65 @@
         > *:last-child() {
             align-items: flex-start;
         }
+        .itemToggle {
+            position: absolute;
+            width: 150px;
+            box-shadow: var(--shadow);
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -40px;
+                right: 20px;
+                border-top: 20px solid transparent;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-bottom: 20px solid var(--secondary);
+            }
+        } 
+        .itemToggle:not(.visible) {
+            top: -200vh;
+        }
         #search {
             box-shadow: var(--shadow);
             height: 50px;
             margin: 0 auto;
+        }
+        #notificationsToggle {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            width: 40px;
+            cursor: pointer;
+        }
+        #notifications {
+            width: 300px;
+            right: 160px;
+
+            &:before {
+                border-bottom: 20px solid var(--primary) !important;
+            }
+            header {
+                border-top-left-radius: var(--radius);
+                border-top-right-radius: var(--radius);
+                background-color: var(--primary);
+                height: 40px;
+                display: flex;
+                align-items: center;
+                text-indent: 30px;
+            }
+            #content.none {
+                height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    color: var(--text);
+                }
+            }
         }
         #userMenuToggle {
             box-shadow: var(--shadow);
@@ -70,16 +140,8 @@
                 height: 100%;
             }
         }
-        #userMenu:not(.visible) {
-            top: -200vh;
-        }
         #userMenu {
-            box-shadow: var(--shadow);
-            background-color: var(--secondary);
-            border-radius: var(--radius);
-            position: absolute;
             right: 20px;
-            width: 150px;
             height: 0;
             opacity: 0;
             display: flex;
@@ -88,16 +150,6 @@
             align-items: flex-end;
             transition: opacity 300ms ease;
 
-            &::before {
-                content: '';
-                position: absolute;
-                top: -40px;
-                right: 20px;
-                border-top: 20px solid transparent;
-                border-left: 20px solid transparent;
-                border-right: 20px solid transparent;
-                border-bottom: 20px solid var(--secondary);
-            }
             menu {
                 border-radius: var(--radius);
                 width: 100%;

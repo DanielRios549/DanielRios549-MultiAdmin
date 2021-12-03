@@ -1,7 +1,7 @@
 <script lang="ts">
     import Dark from '$icons/dark.svg'
 
-    export let title = 'Card Title'
+    export let title: string = 'Card Title'
 </script>
 
 <article class="card">
