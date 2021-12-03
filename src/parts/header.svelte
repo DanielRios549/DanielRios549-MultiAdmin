@@ -47,7 +47,7 @@
             height: 50px;
             display: flex;
             align-items: center;
-            margin: 0 10px 0 0;
+            margin: 0 20px 0 0;
             padding: 10px;
             user-select: none;
             cursor: pointer;
@@ -78,7 +78,7 @@
             background-color: var(--secondary);
             border-radius: var(--radius);
             position: absolute;
-            right: 10px;
+            right: 20px;
             width: 150px;
             height: 0;
             opacity: 0;

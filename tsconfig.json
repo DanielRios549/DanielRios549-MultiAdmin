@@ -1,31 +1,31 @@
 {
-	"compilerOptions": {
-		"moduleResolution": "node",
-		"module": "es2020",
-		"lib": ["es2020", "DOM"],
-		"target": "es2020",
-		"importsNotUsedAsValues": "error",
-		"isolatedModules": true,
-		"resolveJsonModule": true,
-		"sourceMap": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
-		"allowJs": true,
-		"checkJs": true,
-		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
-			"$stores": ["src/stores"],
-			"$stores/*": ["src/stores/*"],
-			"$components": ["src/components"],
-			"$components/*": ["src/components/*"],
-			"$parts": ["src/parts"],
-			"$parts/*": ["src/parts/*"],
-			"$icons": ["src/icons"],
-			"$icons/*": ["src/icons/*"]
-		}
-	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "es2020",
+        "lib": ["es2020", "DOM"],
+        "target": "es2020",
+        "importsNotUsedAsValues": "error",
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "allowJs": true,
+        "checkJs": true,
+        "paths": {
+            "$lib": ["src/lib"],
+            "$lib/*": ["src/lib/*"],
+            "$stores": ["src/stores"],
+            "$stores/*": ["src/stores/*"],
+            "$components": ["src/components"],
+            "$components/*": ["src/components/*"],
+            "$parts": ["src/parts"],
+            "$parts/*": ["src/parts/*"],
+            "$icons": ["src/icons"],
+            "$icons/*": ["src/icons/*"]
+        }
+    },
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }

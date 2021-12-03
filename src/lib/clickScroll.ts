@@ -1,6 +1,6 @@
 function listInfo(list: HTMLElement) {
     const left = parseInt(list.style.left)
-	const width = list.scrollWidth
+    const width = list.scrollWidth
 
     return {left, width}
 }
@@ -19,9 +19,9 @@ export function clickNext(element: HTMLElement, itemToScroll: string) {
     function onClick() {
         const {left, width} = listInfo(list)
 
-		if (Math.abs(left) <= width - 900) {
-			list.style.left = `${left - 300}px`
-		}
+        if (Math.abs(left) <= width - 900) {
+            list.style.left = `${left - 300}px`
+        }
     }
     
     element.addEventListener('click', onClick)
@@ -48,8 +48,8 @@ export function clickPrev(element: HTMLElement, itemToScroll: string) {
         const {left} = listInfo(list)
     
         if (left < 0) {
-			list.style.left = `${left + 300}px`
-		}
+            list.style.left = `${left + 300}px`
+        }
     }
 
     element.addEventListener('click', onClick)
