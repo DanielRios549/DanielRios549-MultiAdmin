@@ -1,37 +1,40 @@
 <script lang="ts">
     import { clickInside, clickOutside } from '$lib/clickToggle'
+    import { user, isAuth } from '$stores/auth'
     import Notifications from '$icons/notifications.svg'
     import Users from '$icons/users.svg'
 </script>
 
 <header id="header">
-    <input type="text" id="search" name="search" placeholder="Search"/>
-    <section>
-        <div use:clickInside use:clickOutside id="notificationsToggle">
-            <Notifications/>
-        </div>
-        <article id="notifications" class="itemToggle">
-            <header>
-                <h3>Notifications</h3>
-            </header>
-            <div id="content" class="none">
-                <span>Nothing to show</span>
+    {#if $isAuth}
+        <input type="text" id="search" name="search" placeholder="Search"/>
+        <section>
+            <div use:clickInside use:clickOutside id="notificationsToggle">
+                <Notifications/>
             </div>
-        </article>
-    </section>
-    <section>
-        <div use:clickInside use:clickOutside id="userMenuToggle">
-            <span class="icon"><Users/></span>
-            <span class="name">User</span>
-        </div>
-        <nav id="userMenu" class="itemToggle">
-            <menu>
-                <li>Profile</li>
-                <li>Settings</li>
-                <li>Logout</li>
-            </menu>
-        </nav>
-    </section>
+            <article id="notifications" class="itemToggle">
+                <header>
+                    <h3>Notifications</h3>
+                </header>
+                <div id="content" class="none">
+                    <span>Nothing to show</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <div use:clickInside use:clickOutside id="userMenuToggle">
+                <span class="icon"><Users/></span>
+                <span class="name">{$user}</span>
+            </div>
+            <nav id="userMenu" class="itemToggle">
+                <menu>
+                    <li>Profile</li>
+                    <li>Settings</li>
+                    <li>Logout</li>
+                </menu>
+            </nav>
+        </section>
+    {/if}
 </header>
 
 <style lang="scss">

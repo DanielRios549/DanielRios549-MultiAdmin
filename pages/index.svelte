@@ -1,15 +1,16 @@
 <script lang="ts">
     import { network, sites } from '$stores/sites'
+    import { login, isAuth } from '$stores/auth'
     import { fly } from 'svelte/transition'
     import { clickPrev, clickNext } from  '$lib/clickScroll'
 
     const title: string = 'Home'
 
-    $: auth = false
-
-    const hangleLogin = (event: any) => {
-        event.preventDefault()
-        auth = true
+    const hangleLogin = async (event: any) => {
+        const user = new FormData(event.target).get('user')
+        const data = await login(user.toString())
+    
+        data === user ? $isAuth = true : false
     }
 </script>
 
@@ -18,39 +19,39 @@
 </svelte:head>
 
 <main>
-    {#if auth}
-    <button use:clickPrev={'#sites'} id="back">{'<'}</button>
-    <button use:clickNext={'#sites'} id="next">{'>'}</button>
-    <nav>
-        <menu id="sites" style="left: 0">
-            <li in:fly={{ x: 200, duration: 600 }}>
-                <a href="{network.link}/dashboard">
-                    <img src="/sites/portrait/{network.name.toLowerCase()}.jpg" alt="NetworkImage">
-                    <span>{network.name}</span>
-                </a>
-            </li>
-            {#each $sites as site, index}
-                <li in:fly={{ x: 200 * (index + 2), duration: 600 }}>
-                    <a href="{site.link}/dashboard">
-                        <img src="/sites/portrait/{site.name.toLowerCase()}.jpg" alt="{site.name}Image">
-                        <span>{site.name}</span>
+    {#if $isAuth}
+        <button use:clickPrev={'#sites'} id="back">{'<'}</button>
+        <button use:clickNext={'#sites'} id="next">{'>'}</button>
+        <nav>
+            <menu id="sites" style="left: 0">
+                <li in:fly={{ x: 200, duration: 600 }}>
+                    <a href="{network.link}/dashboard">
+                        <img src="/sites/portrait/{network.name.toLowerCase()}.jpg" alt="NetworkImage">
+                        <span>{network.name}</span>
                     </a>
                 </li>
-            {/each}
-        </menu>
-    </nav>
+                {#each $sites as site, index}
+                    <li in:fly={{ x: 200 * (index + 2), duration: 600 }}>
+                        <a href="{site.link}/dashboard">
+                            <img src="/sites/portrait/{site.name.toLowerCase()}.jpg" alt="{site.name}Image">
+                            <span>{site.name}</span>
+                        </a>
+                    </li>
+                {/each}
+            </menu>
+        </nav>
     {/if}
 </main>
 <aside>
-    {#if !auth}
-    <p class="info">Enter with your account</p>
-    <form on:submit={hangleLogin}>
-        <input type="text" name="user" id="user">
-        <button type="submit">Enter</button>
-    </form>
+    {#if !$isAuth}
+        <p class="info">Enter with your account</p>
+        <form on:submit|preventDefault={hangleLogin}>
+            <input type="text" name="user" id="user" required>
+            <button type="submit">Enter</button>
+        </form>
     {:else}
-    <p class="info">Choose a site to manage.</p>
-    <button>Avaiable Sites</button>
+        <p class="info">Choose a site to manage.</p>
+        <button>Avaiable Sites</button>
     {/if}
 </aside>
 

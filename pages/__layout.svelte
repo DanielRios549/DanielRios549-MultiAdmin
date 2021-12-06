@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte'
     import { page } from '$app/stores'
+    import { check } from '$stores/auth'
     import Sites from '$parts/sites.svelte'
     import Header from '$parts/header.svelte'
     import Footer from '$parts/footer.svelte'
@@ -9,7 +10,9 @@
     $: path = $page.path
     let ready: boolean
 
-    onMount(() => {
+    onMount(async () => {
+        await check()
+
         document.body.classList.add($theme)
         ready = true
     })

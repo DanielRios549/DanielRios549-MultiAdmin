@@ -20,6 +20,9 @@ const config = {
         },
         vite: {
             plugins: [svg()],
+            optimizeDeps: {
+                exclude: ['svelte-kit-cookie-session'],
+            },
             resolve: {
                 alias: {
                     '$stores': path.resolve('./src/stores'),
