@@ -98,6 +98,7 @@
             input {
                 border: 2px solid var(--text);
                 background-color: var(--primary);
+                height: 60px;
             }
         }
     }

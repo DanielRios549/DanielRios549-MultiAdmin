@@ -48,6 +48,7 @@
                 
                 h1 {
                     background-color: rgba(0, 0, 0, .6);
+                    backdrop-filter: blur(5px);
                     grid-column: 1/2;
                     grid-row: 2;
                     display: flex;

@@ -3,11 +3,15 @@
     import { user, isAuth } from '$stores/auth'
     import Notifications from '$icons/notifications.svg'
     import Users from '$icons/users.svg'
+    import Search from '$icons/search.svg'
 </script>
 
 <header id="header">
     {#if $isAuth}
-        <input type="text" id="search" name="search" placeholder="Search"/>
+        <section id="searchBox" class="toggleArea">
+            <span class="icon"><Search/></span>
+            <input type="text" id="search" name="search" placeholder="Search"/>
+        </section>
         <section class="toggleArea">
             <div use:clickInside use:clickOutside id="notificationsToggle">
                 <Notifications/>
@@ -41,11 +45,45 @@
     #header {
         padding: 10px 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         gap: 10px;
         z-index: 100;
+        padding-right: 20px;
 
+        #searchBox {
+            min-width: 50px;
+            display: flex;
+            overflow: hidden;
+            z-index: 97;
+            transition: all 300ms ease;
+
+            .icon {
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            input {
+                border: none;
+                background-color: transparent;
+                text-indent: 50px;
+                height: 100%;
+                width: 50px;
+                cursor: pointer;
+                z-index: 98;
+                transition: width 300ms ease;
+
+                &:focus-visible {
+                    text-indent: 0;
+                    width: 200px;
+                    cursor: text;
+                    margin-left: 30px;
+                }
+            }
+        }
         :global(.visible) {
             top: 70px !important;
         }
@@ -53,10 +91,10 @@
             align-items: flex-start;
         }
         .itemToggle {
+            border-radius: var(--radius);
             position: absolute;
             box-shadow: var(--shadow);
             background-color: var(--secondary);
-            border-radius: var(--radius);
 
             &::before {
                 content: '';
@@ -72,12 +110,10 @@
         .itemToggle:not(.visible) {
             top: -200vh;
         }
-        #search {
-            box-shadow: var(--shadow);
-            height: 50px;
-            margin: 0 auto;
-        }
         .toggleArea {
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            background-color: var(--secondary);
             position: relative;
             height: 50px;
 
@@ -117,15 +153,11 @@
                 }
             }
             #userMenuToggle {
-                box-shadow: var(--shadow);
-                border-radius: var(--radius);
-                background-color: var(--secondary);
                 min-width: 150px;
                 height: 100%;
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                margin: 0 20px 0 0;
                 padding: 10px;
                 user-select: none;
                 cursor: pointer;
@@ -149,7 +181,7 @@
                 }
             }
             #userMenu {
-                right: 20px;
+                right: 0;
                 height: 0;
                 width: 150px;
                 opacity: 0;
