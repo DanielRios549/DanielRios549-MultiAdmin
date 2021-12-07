@@ -8,7 +8,7 @@
 <header id="header">
     {#if $isAuth}
         <input type="text" id="search" name="search" placeholder="Search"/>
-        <section>
+        <section class="toggleArea">
             <div use:clickInside use:clickOutside id="notificationsToggle">
                 <Notifications/>
             </div>
@@ -21,7 +21,7 @@
                 </div>
             </article>
         </section>
-        <section>
+        <section class="toggleArea">
             <div use:clickInside use:clickOutside id="userMenuToggle">
                 <span class="icon"><Users/></span>
                 <span class="name">{$user}</span>
@@ -47,14 +47,13 @@
         z-index: 100;
 
         :global(.visible) {
-            top: 75px !important;
+            top: 70px !important;
         }
         > *:last-child() {
             align-items: flex-start;
         }
         .itemToggle {
             position: absolute;
-            width: 150px;
             box-shadow: var(--shadow);
             background-color: var(--secondary);
             border-radius: var(--radius);
@@ -78,100 +77,108 @@
             height: 50px;
             margin: 0 auto;
         }
-        #notificationsToggle {
-            display: flex;
-            justify-content: center;
-            align-self: center;
-            width: 40px;
-            cursor: pointer;
-        }
-        #notifications {
-            width: 300px;
-            right: 160px;
-
-            &:before {
-                border-bottom: 20px solid var(--primary) !important;
-            }
-            header {
-                border-top-left-radius: var(--radius);
-                border-top-right-radius: var(--radius);
-                background-color: var(--primary);
-                height: 40px;
-                display: flex;
-                align-items: center;
-                text-indent: 30px;
-            }
-            #content.none {
-                height: 200px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                span {
-                    color: var(--text);
-                }
-            }
-        }
-        #userMenuToggle {
-            box-shadow: var(--shadow);
-            border-radius: var(--radius);
-            background-color: var(--secondary);
-            min-width: 150px;
+        .toggleArea {
+            position: relative;
             height: 50px;
-            display: flex;
-            align-items: center;
-            margin: 0 20px 0 0;
-            padding: 10px;
-            user-select: none;
-            cursor: pointer;
-            z-index: 100;
 
-            .icon {
-                background-color: var(--primary);
-                border-radius: var(--radius);
+            #notificationsToggle {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-            }
-            .name {
-                color: var(--text);
-                display: flex;
-                flex-grow: 1;
-                justify-content: flex-end;
-                align-items: center;
-                width: 100%;
+                width: 50px;
                 height: 100%;
+                cursor: pointer;
             }
-        }
-        #userMenu {
-            right: 20px;
-            height: 0;
-            opacity: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-            transition: opacity 300ms ease;
+            #notifications {
+                width: 300px;
+                right: -15px;
 
-            menu {
-                border-radius: var(--radius);
-                width: 100%;
-                overflow: hidden;
-
-                li {
-                    height: 30px;
-                    width: 100%;
+                &:before {
+                    border-bottom: 20px solid var(--primary) !important;
+                }
+                header {
+                    border-top-left-radius: var(--radius);
+                    border-top-right-radius: var(--radius);
+                    background-color: var(--primary);
+                    height: 40px;
                     display: flex;
                     align-items: center;
-                    justify-content: flex-end;
-                    padding-right: 20px;
-                    cursor: pointer;
-                    transition: all 400ms ease;
-                    color: var(--text);
+                    text-indent: 30px;
+                }
+                #content.none {
+                    height: 200px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
-                    &:hover {
-                        background-color: var(--highlight);
-                        color: var(--text2);
+                    span {
+                        color: var(--text);
+                    }
+                }
+            }
+            #userMenuToggle {
+                box-shadow: var(--shadow);
+                border-radius: var(--radius);
+                background-color: var(--secondary);
+                min-width: 150px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 0 20px 0 0;
+                padding: 10px;
+                user-select: none;
+                cursor: pointer;
+                z-index: 100;
+
+                .icon {
+                    background-color: var(--primary);
+                    border-radius: var(--radius);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .name {
+                    color: var(--text);
+                    display: flex;
+                    flex-grow: 1;
+                    justify-content: flex-end;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            #userMenu {
+                right: 20px;
+                height: 0;
+                width: 150px;
+                opacity: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+                transition: opacity 300ms ease;
+
+                menu {
+                    border-radius: var(--radius);
+                    width: 100%;
+                    overflow: hidden;
+
+                    li {
+                        height: 30px;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        padding-right: 20px;
+                        cursor: pointer;
+                        transition: all 400ms ease;
+                        color: var(--text);
+
+                        &:hover {
+                            background-color: var(--highlight);
+                            color: var(--text2);
+                        }
                     }
                 }
             }
