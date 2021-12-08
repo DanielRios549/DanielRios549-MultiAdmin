@@ -13,15 +13,17 @@
         <nav>
             <menu>
                 <li class:current={$page.path.split('/')[1] === network.name.toLowerCase()}>
-                    <a href="/{network.name.toLowerCase()}/dashboard" class="siteLink">{
-                        network.name
-                    }</a>
+                    <a href="/{network.name.toLowerCase()}/dashboard" class="siteLink">
+                        <img src="/sites/small/{network.name.toLowerCase()}.jpg" alt="NetworkSmall">
+                        <span>{network.name}</span>
+                    </a>
                 </li>
                 {#each $sites as site}
                 <li class:current={$page.path.split('/')[1] === site.name.toLowerCase()}>
-                    <a href="/{site.name.toLowerCase()}/dashboard" class="siteLink">{
-                        site.name
-                    }</a>
+                    <a href="/{site.name.toLowerCase()}/dashboard" class="siteLink">
+                        <img src="/sites/small/{site.name.toLowerCase()}.jpg" alt="{site.name}Small">
+                        <span>{site.name}</span>
+                    </a>
                 </li>
                 {/each}
             </menu>
@@ -99,6 +101,7 @@
                     margin-left: 15px;
 
                     .siteLink {
+                        overflow: hidden;
                         border-radius: 50%;
                         background-color: var(--secondary);
                         color: var(--text);
@@ -110,6 +113,13 @@
                         cursor: pointer;
                         transition: all 400ms ease;
 
+                        &:hover {
+                            span {
+                                left: 150%;
+                                min-width: 100px;
+                                opacity: 1;
+                            }
+                        }
                         &::before {
                             content: '';
                             position: absolute;
@@ -119,6 +129,30 @@
                             width: 8px;
                             height: 15px;
                             transition: height 300ms ease;
+                        }
+                        span {
+                            box-shadow: var(--shadow);
+                            border-radius: var(--radius);
+                            background-color: var(--primary);
+                            position: absolute;
+                            left: -200%;
+                            height: 40px;
+                            width: 0px;
+                            opacity: 0;
+                            display: flex;
+                            align-items: center;
+                            z-index: 101;
+                            transition: opacity 300ms ease;
+
+                            &::before {
+                                content: '';
+                                position: relative;
+                                left: -20px;
+                                border-top: 10px solid transparent;
+                                border-left: 10px solid transparent;
+                                border-right: 10px solid var(--primary);
+                                border-bottom: 10px solid transparent;
+                            }
                         }
                     }
                 }
