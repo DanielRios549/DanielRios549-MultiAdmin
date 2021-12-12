@@ -2,6 +2,7 @@
     import { page } from '$app/stores'
     import { toggleClass } from '$lib/scrollChange'
     import Card from '$components/card.svelte'
+    import Todo from '$components/todo.svelte'
 
     let site: string
     let section: string
@@ -23,11 +24,12 @@
             <img src="/sites/banner/{site.toLocaleLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
         </header>
     </section>
-    <section class="cards">
-        <Card />
-        <Card />
-        <Card />
+    <section id="cards">
+        <Card/>
+        <Card/>
+        <Card/>
     </section>
+    <Todo/>
 </main>
 
 <style lang="scss">
@@ -39,7 +41,6 @@
             position: relative;
             left: -20px;
             width: calc(100% + 20px);
-            margin-bottom: 20px;
 
             header {
                 display: grid;
@@ -66,7 +67,7 @@
                 }
             }
         }
-        .cards {
+        #cards {
             display: flex;
             gap: 10px;
         }

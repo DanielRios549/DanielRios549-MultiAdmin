@@ -35,7 +35,11 @@
     > main {
         grid-area: main;
         grid-row: header/main;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
     > footer {
         grid-area: footer;
