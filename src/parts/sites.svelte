@@ -12,17 +12,17 @@
     <section id="sites">
         <nav>
             <menu>
-                <li class:current={$page.path.split('/')[1] === network.name.toLowerCase()}>
-                    <a href="/{network.name.toLowerCase()}/dashboard" class="siteLink">
-                        <img src="/sites/small/{network.name.toLowerCase()}.jpg" alt="NetworkSmall">
+                <li class:current={$page.path.split('/')[1] === network.name}>
+                    <a href="/{network.name}/dashboard" class="siteLink">
+                        <img src="/sites/small/{network.name}.jpg" alt="NetworkSmall">
                         <span>{network.name}</span>
                     </a>
                 </li>
                 {#each $sites as site}
-                <li class:current={$page.path.split('/')[1] === site.name.toLowerCase()}>
-                    <a href="/{site.name.toLowerCase()}/dashboard" class="siteLink">
-                        <img src="/sites/small/{site.name.toLowerCase()}.jpg" alt="{site.name}Small">
-                        <span>{site.name}</span>
+                <li class:current={$page.path.split('/')[1] === site.name}>
+                    <a href="/{site.name}/dashboard" class="siteLink">
+                        <img src="/sites/small/{site.name}.jpg" alt="{site.name}Small">
+                        <span>{site.displayName}</span>
                     </a>
                 </li>
                 {/each}

@@ -26,15 +26,15 @@
             <menu id="sites" style="left: 0">
                 <li in:fly={{ x: 200, duration: 600 }}>
                     <a href="{network.link}/dashboard">
-                        <img src="/sites/portrait/{network.name.toLowerCase()}.jpg" alt="NetworkImage">
-                        <span>{network.name}</span>
+                        <img src="/sites/portrait/{network.name}.jpg" alt="NetworkImage">
+                        <span>{network.displayName}</span>
                     </a>
                 </li>
                 {#each $sites as site, index}
                     <li in:fly={{ x: 200 * (index + 2), duration: 600 }}>
                         <a href="{site.link}/dashboard">
-                            <img src="/sites/portrait/{site.name.toLowerCase()}.jpg" alt="{site.name}Image">
-                            <span>{site.name}</span>
+                            <img src="/sites/portrait/{site.name}.jpg" alt="{site.name}Image">
+                            <span>{site.displayName}</span>
                         </a>
                     </li>
                 {/each}
@@ -107,6 +107,7 @@
         width: 100%;
         height: 100%;
         display: flex;
+        flex-direction: row !important;
         align-content: center;
         justify-content: flex-end;
 

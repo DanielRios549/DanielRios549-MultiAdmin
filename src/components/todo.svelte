@@ -1,18 +1,25 @@
 <script lang="ts">
     export let name: string = 'Todo List'
+    export let items: string[] | object[] = []
 </script>
 
 <section id="todo">
     <header>
         <h3>{name}</h3>
     </header>
-    <ul id="items">
-        <li><input type="checkbox"/><span>Item to do</span></li>
-        <li><input type="checkbox"/><span>Item to do</span></li>
-        <li><input type="checkbox"/><span>Item to do</span></li>
-        <li><input type="checkbox"/><span>Item to do</span></li>
-        <li><input type="checkbox"/><span>Item to do</span></li>
-    </ul>
+    {#if items.length <= 0}
+        <span>No Items to Show.</span>
+    {:else}
+        <ul id="items">
+            {#each items as item}
+                <li>
+                    <input type="checkbox"/>
+                    <span>{item}</span>
+                    <button></button>
+                </li>
+            {/each}
+        </ul>
+    {/if}
 </section>
 
 
@@ -43,7 +50,7 @@
 
             li {
                 background-color: var(--color3);
-                height: 30px;
+                height: 40px;
 
                 input[type="checkbox"] {
                     margin: 0 20px;

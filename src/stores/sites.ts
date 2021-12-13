@@ -9,21 +9,27 @@ import Tools from '$icons/tools.svg'
 import Settings from '$icons/settings.svg'
 
 export const network: Site = {
-    'name':'Network',
+    'name': 'network',
+    'displayName': 'Network',
     'link': '/network',
-    'options': ['Dashboard', 'Users', 'Settings']
+    'options': ['Dashboard', 'Users', 'Settings'],
+    'todo': ['Option 1', 'Option 2', 'Option 3', 'Option 4']
 }
 
 const defaultSites: Site[] =  [
     {
-        'name':'Reakut',
+        'name': 'reakut',
+        'displayName': 'Reakut',
         'link': '/reakut',
-        'options': ['Dashboard', 'Posts', 'Pages', 'Users', 'Tools', 'Settings']
+        'options': ['Dashboard', 'Posts', 'Pages', 'Users', 'Tools', 'Settings'],
+        'todo': ['Morning Task', 'Afternoon task', 'Evening Task']
     },
     {
-        'name': 'Second',
+        'name': 'second',
+        'displayName': 'Second',
         'link': '/second',
-        'options': ['Dashboard', 'Pages', 'Users', 'Tools', 'Settings']
+        'options': ['Dashboard', 'Pages', 'Users', 'Tools', 'Settings'],
+        'todo': ['Send Email', 'Verify User', 'Check Prices']
     }
 ]
 

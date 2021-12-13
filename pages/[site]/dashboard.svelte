@@ -1,15 +1,22 @@
 <script lang="ts">
     import { page } from '$app/stores'
+    import { network, sites } from '$stores/sites'
     import { toggleClass } from '$lib/scrollChange'
     import Card from '$components/card.svelte'
     import Todo from '$components/todo.svelte'
 
+    let todos: object = {'network': network.todo}
+    
+    $sites.map((item) => todos[item.name] = item.todo)
+
     let site: string
     let section: string
+    let tasks: string[]
 
     $: {
         site = $page.path.split('/')[1].charAt(0).toUpperCase() + $page.path.split('/')[1].slice(1)
         section = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
+        tasks = todos[site.toLowerCase()]
     }
 </script>
 
@@ -21,7 +28,7 @@
     <section id="banner">
         <header>
             <h1>{site} - {section}</h1>
-            <img src="/sites/banner/{site.toLocaleLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
+            <img src="/sites/banner/{site.toLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
         </header>
     </section>
     <section id="cards">
@@ -29,7 +36,7 @@
         <Card/>
         <Card/>
     </section>
-    <Todo/>
+    <Todo items={tasks}/>
 </main>
 
 <style lang="scss">

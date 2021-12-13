@@ -15,7 +15,7 @@
             options = network.options
         }
         else {
-            options = $sites.find(item => item.name.toLowerCase() === site).options
+            options = $sites.find(item => item.name === site).options
         }
         link = (link: string) => $page.path.split('/')[2] === link.toLowerCase()
     }
@@ -28,9 +28,9 @@
     <nav>
         <menu>
             {#each options as option}
-            <li class:current={link(option.toLowerCase())}>
+            <li class:current={link(option)}>
                 <a href="/{$page.path.split('/')[1]}/{option.toLowerCase()}">
-                    <svelte:component this={icons[option.toLocaleLowerCase()]}/>
+                    <svelte:component this={icons[option.toLowerCase()]}/>
                     {option}
                 </a>
             </li>
