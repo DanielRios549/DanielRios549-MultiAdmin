@@ -1,4 +1,7 @@
 <script lang="ts">
+    import Trash from '$icons/trash.svg'
+    import Move from '$icons/move.svg'
+
     export let name: string = 'Todo List'
     export let items: string[] | object[] = []
 </script>
@@ -13,9 +16,10 @@
         <ul id="items">
             {#each items as item}
                 <li>
+                    <button class="move"><Move/></button>
                     <input type="checkbox"/>
                     <span>{item}</span>
-                    <button></button>
+                    <button class="remove"><Trash/></button>
                 </li>
             {/each}
         </ul>
@@ -42,6 +46,7 @@
             align-items: center;
         }
         #items {
+            position: relative;
             overflow-y: auto;
             flex-grow: 1;
             display: flex;
@@ -51,13 +56,42 @@
             li {
                 background-color: var(--color3);
                 height: 40px;
+                display: flex;
+                padding: 0 10px;
 
+                &:hover button:not(.move) {
+                    display: block;
+                }
+                span {
+                    flex-grow: 1;
+                }
                 input[type="checkbox"] {
                     margin: 0 20px;
 
                     &:checked + span {
                         text-decoration: line-through;
                         color: var(--color4);
+                    }
+                }
+                button.move {
+                    cursor: move;
+                }
+                button:not(.move) {
+                    display: none;
+                    cursor: pointer;
+
+                    :global(svg path) {
+                        fill: var(--red) !important;
+                    }
+                }
+                button {
+                    background-color: transparent;
+
+                    :global {
+                        svg {
+                            width: 18px !important;
+                            height: 18px !important;
+                        }
                     }
                 }
             }

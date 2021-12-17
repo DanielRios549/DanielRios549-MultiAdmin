@@ -1,4 +1,4 @@
-body.light {
+#app.light {
     --primary: #E3E5E8;
     --secondary: #F2F3F5;
     --color3: #dbdbdb;
@@ -8,10 +8,11 @@ body.light {
     --icon: #313131;
     --icon2: #dbdbdb;
     --highlight: #02A583;
+    --red: #f52929;
     --radius: 5px;
     --shadow: 2px 2px 10px rgba(0, 0, 0, .1);
 }
-body.dark {
+#app.dark {
     --primary: #202225;
     --secondary: #36393F;
     --color3: #27282b;
@@ -21,6 +22,7 @@ body.dark {
     --icon: #D6D6D6;
     --icon2: #727272;
     --highlight: #02A583;
+    --red: #f52929;
     --radius: 5px;
     --shadow: 2px 2px 10px rgba(0, 0, 0, .4);
 }

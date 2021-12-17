@@ -6,25 +6,27 @@
 
     import Dark from '$icons/dark.svg'
     import Light from '$icons/light.svg'
+
+    $: current = $page.path.split('/')[1]
 </script>
 
 <aside id="panel">
     <section id="sites">
         <nav>
             <menu>
-                <li class:current={$page.path.split('/')[1] === network.name}>
+                <li class:current={current === network.name}>
                     <a href="/{network.name}/dashboard" class="siteLink">
                         <img src="/sites/small/{network.name}.jpg" alt="NetworkSmall">
                         <span>{network.name}</span>
                     </a>
                 </li>
                 {#each $sites as site}
-                <li class:current={$page.path.split('/')[1] === site.name}>
-                    <a href="/{site.name}/dashboard" class="siteLink">
-                        <img src="/sites/small/{site.name}.jpg" alt="{site.name}Small">
-                        <span>{site.displayName}</span>
-                    </a>
-                </li>
+                    <li class:current={current === site.name}>
+                        <a href="/{site.name}/dashboard" class="siteLink">
+                            <img src="/sites/small/{site.name}.jpg" alt="{site.name}Small">
+                            <span>{site.displayName}</span>
+                        </a>
+                    </li>
                 {/each}
             </menu>
         </nav>
@@ -32,9 +34,9 @@
             <input hidden type="checkbox" checked={$theme === 'dark'} name="themeInput" id="themeInput" on:change={handleTheme}/>
             <label for="themeInput" id="themeSwitcher">
                 {#if $theme === 'dark'}
-                <Light />
+                    <Light />
                 {:else}
-                <Dark />
+                    <Dark />
                 {/if}
             </label>
         </section>
