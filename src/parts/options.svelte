@@ -1,10 +1,9 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import { saves, keys } from '$stores/saves'
     import { network, sites, icons } from '$stores/sites'
     import { clickInside } from '$lib/clickToggle'
     import Menu from '$icons/menu.svg'
-
-    let menuOpen = JSON.parse(localStorage.getItem('menu')) || false
 
     let options: string[] = []
     let link: any
@@ -23,8 +22,8 @@
     }
 </script>
 
-<section id="options" class:visible={menuOpen}>
-    <section use:clickInside={{ item: '#options', save: true, key: 'menu' }} id="pannelToggle">
+<section id="options" class:visible={saves[keys.menu]}>
+    <section use:clickInside={{ item: '#options', save: true, key: keys.menu }} id="pannelToggle">
         <Menu />
     </section>
     <nav>
