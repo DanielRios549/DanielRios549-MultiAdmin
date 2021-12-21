@@ -4,6 +4,8 @@
     import { clickInside } from '$lib/clickToggle'
     import Menu from '$icons/menu.svg'
 
+    let menuOpen = JSON.parse(localStorage.getItem('menu')) || false
+
     let options: string[] = []
     let link: any
 
@@ -21,8 +23,8 @@
     }
 </script>
 
-<section id="options" class="visible">
-    <section use:clickInside={'#options'} id="pannelToggle">
+<section id="options" class:visible={menuOpen}>
+    <section use:clickInside={{ item: '#options', save: true, key: 'menu' }} id="pannelToggle">
         <Menu />
     </section>
     <nav>

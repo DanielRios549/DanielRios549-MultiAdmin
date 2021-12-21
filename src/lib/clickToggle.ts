@@ -1,24 +1,40 @@
+type Options = {
+    item?: string
+    save?: boolean
+    key?: string
+}
+
 /**
  * Toggle visible and hidden an element.
  * 
  * The element to toggle should be exactly after the one that uses the action.
  *
  * @param element The element that uses the action, should not be passed.
- * @param itemToToggle The item that will be toggled.
+ * @param item The item that will be toggled.
  * If not passed, the item will be the one immediately after the `element`.
+ * 
+ * @param save Specify if the element should be save to localStorage or not.
+ * @param key The key to be saved to localStorage, only work if save is true.
  *
- * @returns Nothing, just remove Event Listenner
+ * @returns Nothing, just remove Event Listenner.
  */
 
-export function clickInside(element: HTMLElement, itemToToggle: string = undefined) {
+export function clickInside(element: HTMLElement, options?: Options) {
     function onClick() {
-        if (itemToToggle !== undefined) {
-            const item = document.querySelector(itemToToggle)
+        let item: Element = null
 
-            item.classList.toggle('visible')
+        if ((options) && (options.item !== undefined)) {
+            item = document.querySelector(options.item)
         }
         else {
-            element.nextElementSibling.classList.toggle('visible')
+            item = element.nextElementSibling
+        }
+
+        item.classList.toggle('visible')
+
+        if ((options) && (options.save)) {
+            const hasClass = item.classList.contains('visible')
+            localStorage.setItem(options.key, hasClass.toString())
         }
     }
     
@@ -36,21 +52,32 @@ export function clickInside(element: HTMLElement, itemToToggle: string = undefin
  * Use it together clickInside.
  * 
  * @param element The element that uses the action, should not be passed.
- * @param itemToToggle The item that will be toggled.
+ * @param item The item that will be toggled.
  * If not passed, the item will be the one immediately after the `element`.
- * @returns Nothing, just remove Event Listenner
+ * 
+ * @param save Specify if the element should be save to localStorage or not.
+ * @param key The key to be saved to localStorage, only work if save is true.
+ * 
+ * @returns Nothing, just remove Event Listenner.
  */
 
-export function clickOutside(element: HTMLElement, itemToToggle: string = undefined) {
+export function clickOutside(element: HTMLElement, options?: Options) {
     function onClick(event: any) {
         if (!element.contains(event.target)) {
-            if (itemToToggle !== undefined) {
-                const item = document.querySelector(itemToToggle)
-    
-                item.classList.toggle('visible')
+            let item: Element = null
+
+            if ((options) && (options.itemToToggle !== undefined)) {
+                item = document.querySelector(options.itemToToggle)
             }
             else {
-                element.nextElementSibling.classList.remove('visible')
+                item = element.nextElementSibling
+            }
+
+            item.classList.remove('visible')
+
+            if ((options) && (options.save)) {
+                const hasClass = item.classList.contains('visible')
+                localStorage.setItem(options.key, hasClass.toString())
             }
         }
     }
