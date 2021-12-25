@@ -1,5 +1,6 @@
 import { browser } from '$app/env'
-import { writable } from 'svelte/store'
+import { page } from '$app/stores'
+import { writable, get } from 'svelte/store'
 import type { Site } from '$lib/types'
 import Dashboard from '$icons/dashboard.svg'
 import Posts from '$icons/posts.svg'
@@ -36,3 +37,10 @@ const defaultSites: Site[] =  [
 export const icons = {'dashboard': Dashboard, 'users': Users, 'pages': Pages, 'settings': Settings, 'tools': Tools, 'posts': Posts}
 
 export const sites = writable(browser && JSON.parse(localStorage.getItem('sites')) as Site[] || defaultSites)
+
+export const info = () => {
+    const site = get(page).path.split('/')[1].charAt(0).toUpperCase() + get(page).path.split('/')[1].slice(1)
+    const section = get(page).path.split('/')[2].charAt(0).toUpperCase() + get(page).path.split('/')[2].slice(1)
+
+    return [site, section]
+}

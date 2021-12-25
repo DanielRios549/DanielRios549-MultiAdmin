@@ -66,8 +66,8 @@ export function clickOutside(element: HTMLElement, options?: Options) {
         if (!element.contains(event.target)) {
             let item: Element = null
 
-            if ((options) && (options.itemToToggle !== undefined)) {
-                item = document.querySelector(options.itemToToggle)
+            if ((options) && (options.item !== undefined)) {
+                item = document.querySelector(options.item)
             }
             else {
                 item = element.nextElementSibling

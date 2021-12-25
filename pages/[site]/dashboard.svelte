@@ -6,18 +6,14 @@
     import Todo from '$components/todo.svelte'
 
     let todos: object = {'network': network.todo}
-    
+
     $sites.map((item) => todos[item.name] = item.todo)
 
-    let site: string
-    let section: string
-    let tasks: string[]
+    // TODO: Fix - Store info not working here, because page can be changed through sites
 
-    $: {
-        site = $page.path.split('/')[1].charAt(0).toUpperCase() + $page.path.split('/')[1].slice(1)
-        section = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
-        tasks = todos[site.toLowerCase()]
-    }
+    $: site = $page.path.split('/')[1].charAt(0).toUpperCase() + $page.path.split('/')[1].slice(1)
+    $: section = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
+    $: tasks = todos[site.toLowerCase()]
 </script>
 
 <svelte:head>

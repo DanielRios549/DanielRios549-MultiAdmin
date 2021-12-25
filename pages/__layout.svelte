@@ -21,15 +21,14 @@
 </script>
 
 {#if ready === true}
-<Header />
+    <Header/>
+    <slot/>
 
-<slot />
+    {#if !noAuthPages.includes(path)}
+        <Sites/>
+    {/if}
 
-{#if !noAuthPages.includes(path)}
-    <Sites />
-{/if}
-
-<Footer />
+    <Footer/>
 {/if}
 
 <style lang="scss" global>
