@@ -1,21 +1,32 @@
 <script lang="ts">
+    import { getContext } from 'svelte'
+    import { draggable } from 'svelte-drag'
     import Trash from '$icons/trash.svg'
     import Move from '$icons/move.svg'
+    import type { List, SiteContext } from '$lib/types'
 
-    export let name: string = 'Todo List'
-    export let items: string[] | object[] = []
+    export let title: string = 'Todo List'
+    export let items: List = []
+
+    let todo = items
+
+    const { list } = getContext<SiteContext>('site')
+
+    $: if(items.length <= 0) {
+        todo = $list
+    }
 </script>
 
 <section id="todo">
     <header>
-        <h3>{name}</h3>
+        <h3>{title}</h3>
     </header>
-    {#if items.length <= 0}
+    {#if todo.length <= 0}
         <span>No Items to Show.</span>
     {:else}
         <ul id="items">
-            {#each items as item}
-                <li>
+            {#each todo as item}
+                <li use:draggable={{ axis: 'y', bounds: 'parent' }}>
                     <button class="move"><Move/></button>
                     <input type="checkbox"/>
                     <span>{item}</span>

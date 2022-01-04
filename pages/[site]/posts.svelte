@@ -1,12 +1,13 @@
 <script lang="ts">
-    import { info } from '$stores/sites'
+    import { getContext } from 'svelte'
+    import type { SiteContext } from '$lib/types'
 
-    $: site = info()[0]
-    $: section = info()[1]
+
+    const { site, section } = getContext<SiteContext>('site')
 </script>
 
 <svelte:head>
-    <title>{site} - {section}</title>
+    <title>{$site} - {$section}</title>
 </svelte:head>
 
 <main>

@@ -13,8 +13,7 @@ export const network: Site = {
     'name': 'network',
     'displayName': 'Network',
     'link': '/network',
-    'options': ['Dashboard', 'Users', 'Settings'],
-    'todo': ['Option 1', 'Option 2', 'Option 3', 'Option 4']
+    'options': ['Dashboard', 'Users', 'Settings']
 }
 
 const defaultSites: Site[] =  [
@@ -22,25 +21,16 @@ const defaultSites: Site[] =  [
         'name': 'reakut',
         'displayName': 'Reakut',
         'link': '/reakut',
-        'options': ['Dashboard', 'Posts', 'Pages', 'Users', 'Tools', 'Settings'],
-        'todo': ['Morning Task', 'Afternoon task', 'Evening Task']
+        'options': ['Dashboard', 'Posts', 'Pages', 'Users', 'Tools', 'Settings']
     },
     {
         'name': 'second',
         'displayName': 'Second',
         'link': '/second',
-        'options': ['Dashboard', 'Pages', 'Users', 'Tools', 'Settings'],
-        'todo': ['Send Email', 'Verify User', 'Check Prices']
+        'options': ['Dashboard', 'Pages', 'Users', 'Tools', 'Settings']
     }
 ]
 
 export const icons = {'dashboard': Dashboard, 'users': Users, 'pages': Pages, 'settings': Settings, 'tools': Tools, 'posts': Posts}
 
 export const sites = writable(browser && JSON.parse(localStorage.getItem('sites')) as Site[] || defaultSites)
-
-export const info = () => {
-    const site = get(page).path.split('/')[1].charAt(0).toUpperCase() + get(page).path.split('/')[1].slice(1)
-    const section = get(page).path.split('/')[2].charAt(0).toUpperCase() + get(page).path.split('/')[2].slice(1)
-
-    return [site, section]
-}

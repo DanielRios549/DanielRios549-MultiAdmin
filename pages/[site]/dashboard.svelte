@@ -1,30 +1,22 @@
 <script lang="ts">
-    import { page } from '$app/stores'
-    import { network, sites } from '$stores/sites'
+    import { getContext } from 'svelte'
     import { toggleClass } from '$lib/scrollChange'
     import Card from '$components/card.svelte'
     import Todo from '$components/todo.svelte'
+    import type { SiteContext } from '$lib/types'
 
-    let todos: object = {'network': network.todo}
-
-    $sites.map((item) => todos[item.name] = item.todo)
-
-    // TODO: Fix - Store info not working here, because page can be changed through sites
-
-    $: site = $page.path.split('/')[1].charAt(0).toUpperCase() + $page.path.split('/')[1].slice(1)
-    $: section = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
-    $: tasks = todos[site.toLowerCase()]
+    const { site, section } = getContext<SiteContext>('site')
 </script>
 
 <svelte:head>
-    <title>{site} - {section}</title>
+    <title>{$site} - {$section}</title>
 </svelte:head>
 
 <main use:toggleClass={{ scroll: 250, class: 'fixed', item: '#header' }}>
     <section id="banner">
         <header>
-            <h1>{site} - {section}</h1>
-            <img src="/sites/banner/{site.toLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
+            <h1>{$site} - {$section}</h1>
+            <img src="/sites/banner/{$site.toLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
         </header>
     </section>
     <section id="cards">
@@ -32,7 +24,7 @@
         <Card/>
         <Card/>
     </section>
-    <Todo items={tasks}/>
+    <Todo/>
 </main>
 
 <style lang="scss">

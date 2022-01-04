@@ -2,10 +2,10 @@
     import { onMount } from 'svelte'
     import { page } from '$app/stores'
     import { check } from '$stores/auth'
+    import { theme } from '$stores/theme'
     import Sites from '$parts/sites.svelte'
     import Header from '$parts/header.svelte'
     import Footer from '$parts/footer.svelte'
-    import { theme } from '$stores/theme'
 
     $: path = $page.path
     let ready: boolean
