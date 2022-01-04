@@ -1,70 +1,18 @@
 <script lang="ts">
-    import { getContext } from 'svelte'
-    import { toggleClass } from '$lib/scrollChange'
     import Card from '$components/card.svelte'
     import Todo from '$components/todo.svelte'
-    import type { SiteContext } from '$lib/types'
-
-    const { site, section } = getContext<SiteContext>('site')
 </script>
 
-<svelte:head>
-    <title>{$site} - {$section}</title>
-</svelte:head>
-
-<main use:toggleClass={{ scroll: 250, class: 'fixed', item: '#header' }}>
-    <section id="banner">
-        <header>
-            <h1>{$site} - {$section}</h1>
-            <img src="/sites/banner/{$site.toLowerCase()}.jpg" alt="NetworkBanner" height={300}/>
-        </header>
-    </section>
-    <section id="cards">
-        <Card/>
-        <Card/>
-        <Card/>
-    </section>
-    <Todo/>
-</main>
+<section id="cards">
+    <Card/>
+    <Card/>
+    <Card/>
+</section>
+<Todo/>
 
 <style lang="scss">
-    main {
-        color: var(--text);
-        padding: 0 0 20px 20px;
-
-        #banner {
-            position: relative;
-            left: -20px;
-            width: calc(100% + 20px);
-
-            header {
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 50px;
-                
-                h1 {
-                    background-color: rgba(0, 0, 0, .6);
-                    backdrop-filter: blur(5px);
-                    grid-column: 1/2;
-                    grid-row: 2;
-                    display: flex;
-                    align-items: center;
-                    text-indent: 20px;
-                    z-index: 98;
-                    color: #D6D6D6;
-                }
-                img {
-                    object-fit: cover;
-                    width: 100%;
-                    grid-column: 1/2;
-                    grid-row: 1/3;
-                    z-index: 97;
-                }
-            }
-        }
-        #cards {
-            display: flex;
-            gap: 10px;
-        }
+    #cards {
+        display: flex;
+        gap: 10px;
     }
 </style>

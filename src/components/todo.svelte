@@ -6,13 +6,13 @@
     import type { List, SiteContext } from '$lib/types'
 
     export let title: string = 'Todo List'
-    export let items: List = []
+    export let items: List = undefined
 
-    let todo = items
+    let todo = items || []
 
     const { list } = getContext<SiteContext>('site')
 
-    $: if(items.length <= 0) {
+    $: if((!items) && (list)) {
         todo = $list
     }
 </script>
@@ -50,6 +50,9 @@
         flex-direction: column;
         gap: 10px;
 
+        span {
+            color: var(--text);
+        }
         header {
             border-bottom: 3px solid var(--primary);
             height: 50px;
