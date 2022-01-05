@@ -15,15 +15,10 @@
         "allowJs": true,
         "checkJs": true,
         "paths": {
-            "$lib": ["src/lib"],
             "$lib/*": ["src/lib/*"],
-            "$stores": ["src/stores"],
             "$stores/*": ["src/stores/*"],
-            "$components": ["src/components"],
             "$components/*": ["src/components/*"],
-            "$parts": ["src/parts"],
             "$parts/*": ["src/parts/*"],
-            "$icons": ["src/icons"],
             "$icons/*": ["src/icons/*"]
         }
     },

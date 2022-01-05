@@ -14,9 +14,13 @@
     let section = writable('')
     let list = writable([''])
 
-    $: $site = allSites[$page.path.split('/')[1]].displayName
-    $: $section = $page.path.split('/')[2].charAt(0).toUpperCase() + $page.path.split('/')[2].slice(1)
-    $: $list = $tasks[$site.toLowerCase()]
+    $: {
+        let path = $page.path.split('/')
+
+        $site = allSites[path[1]].displayName
+        $section = path[2].charAt(0).toUpperCase() + path[2].slice(1)
+        $list = $tasks[$site.toLowerCase()]
+    }
 
     setContext<SiteContext>('site', { site, section, list })
 </script>
