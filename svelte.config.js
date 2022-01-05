@@ -1,6 +1,7 @@
 import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-static'
 import AutoPrefixer from 'autoprefixer'
+import PresetEnv from 'postcss-preset-env'
 import svg from '@poppanator/sveltekit-svg'
 import path from 'path'
 
@@ -8,7 +9,12 @@ import path from 'path'
 const config = {
     preprocess: sveltePreprocess({
         postcss: {
-            plugins: [AutoPrefixer()]
+            plugins: [
+                AutoPrefixer(),
+                PresetEnv({
+                    stage: 1
+                })
+            ]
         }
     }),
     kit: {

@@ -138,7 +138,7 @@
             width: 700px;
             overflow: hidden;
             
-            @include desktopLarge() {
+            @media (--desktopLarge) {
                 width: 900px;
             }
             menu {
