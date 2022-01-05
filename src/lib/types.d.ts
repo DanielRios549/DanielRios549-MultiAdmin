@@ -7,11 +7,11 @@ export type Site = {
     name: string
     displayName: string
     link: string
-    options: string[]
+    options: List
 }
 
 export type SiteContext = {
     site: Writable<string>
     section: Writable<string>
-    list: Writable<string[]>
+    todo: Writable<List>
 }

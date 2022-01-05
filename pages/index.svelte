@@ -56,8 +56,6 @@
 </aside>
 
 <style lang="scss">
-    @import "../styles/breakpoints";
-
     * {
         --shadow: 2px 2px 10px rgba(0, 0, 0, .5);
     }

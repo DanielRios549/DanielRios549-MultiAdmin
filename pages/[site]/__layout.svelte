@@ -12,17 +12,17 @@
 
     let site = writable('')
     let section = writable('')
-    let list = writable([''])
+    let todo = writable([''])
 
     $: {
         let path = $page.path.split('/')
 
         $site = allSites[path[1]].displayName
         $section = path[2].charAt(0).toUpperCase() + path[2].slice(1)
-        $list = $tasks[$site.toLowerCase()]
+        $todo = $tasks[$site.toLowerCase()]
     }
 
-    setContext<SiteContext>('site', { site, section, list })
+    setContext<SiteContext>('site', { site, section, todo })
 </script>
 
 <svelte:head>

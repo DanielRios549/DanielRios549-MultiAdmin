@@ -9,8 +9,16 @@
     export let items: List = undefined
 
     let todo = items || []
+    let list: SiteContext['todo']
 
-    const { list } = getContext<SiteContext>('site')
+    try {
+        list = getContext<SiteContext>('site').todo
+    }
+    catch {
+        if (!items) {
+            console.log('TODO: Not on a Site Page, you need to pass the items as a Prop.')
+        }
+    }
 
     $: if((!items) && (list)) {
         todo = $list
@@ -36,7 +44,6 @@
         </ul>
     {/if}
 </section>
-
 
 <style lang="scss">
     #todo {

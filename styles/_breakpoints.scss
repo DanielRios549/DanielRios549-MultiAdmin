@@ -4,10 +4,17 @@
 // $mobile: 550;
 
 
-// Apply for desktops
+// Apply for desktop both wide and ultra-wide
+
+@custom-media --desktop (min-width: 971px);
+
+// Apply for desktop ultra-wide
 
 @custom-media --desktopLarge (min-width: 1401px);
-@custom-media --desktop (min-width: 971px) and (max-width: 1400px);
+
+// Apply for desktop wide
+
+@custom-media --desktopSmall (min-width: 971px) and (max-width: 1400px);
 
 //Apply for tablets
 
