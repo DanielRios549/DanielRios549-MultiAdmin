@@ -76,7 +76,7 @@
                 z-index: 98;
                 transition: width 300ms ease;
 
-                &:focus-visible {
+                &:focus {
                     text-indent: 0;
                     width: 200px;
                     cursor: text;

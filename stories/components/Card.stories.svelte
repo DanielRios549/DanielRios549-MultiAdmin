@@ -9,4 +9,4 @@
     <Card {...args}/>
 </Template>
 
-<Story name="Simple"/>
+<Story source name="Simple"/>

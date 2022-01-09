@@ -9,4 +9,4 @@
     <Todo {...args}/>
 </Template>
 
-<Story name="Empty" args={Object.keys(Todo)}/>
+<Story source name="Empty"/>

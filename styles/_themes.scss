@@ -1,4 +1,4 @@
-body:not(#app), #app.light {
+body.light {
     --primary: #E3E5E8;
     --secondary: #F2F3F5;
     --color3: #dbdbdb;
@@ -12,7 +12,7 @@ body:not(#app), #app.light {
     --radius: 5px;
     --shadow: 2px 2px 10px rgba(0, 0, 0, .1);
 }
-#app.dark {
+body.dark {
     --primary: #202225;
     --secondary: #36393F;
     --color3: #27282b;
