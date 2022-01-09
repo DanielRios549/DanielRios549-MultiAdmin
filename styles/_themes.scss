@@ -1,4 +1,4 @@
-#app.light {
+body:not(#app), #app.light {
     --primary: #E3E5E8;
     --secondary: #F2F3F5;
     --color3: #dbdbdb;

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { getContext } from 'svelte'
-    import { draggable } from 'svelte-drag'
+    import { draggable, DragOptions } from 'svelte-drag'
     import Trash from '$icons/trash.svg'
     import Move from '$icons/move.svg'
     import type { List, SiteContext } from '$lib/types'
@@ -23,6 +23,12 @@
     $: if((!items) && (list)) {
         todo = $list
     }
+
+    let dragOption: DragOptions = {
+        axis: 'y',
+        bounds: 'parent',
+        handle: '.move'
+    }
 </script>
 
 <section id="todo">
@@ -34,7 +40,7 @@
     {:else}
         <ul id="items">
             {#each todo as item}
-                <li use:draggable={{ axis: 'y', bounds: 'parent' }}>
+                <li use:draggable={dragOption}>
                     <button class="move"><Move/></button>
                     <input type="checkbox"/>
                     <span>{item}</span>

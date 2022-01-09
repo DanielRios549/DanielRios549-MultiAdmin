@@ -2,7 +2,9 @@
 @use "./themes";
 @use "./reset";
 
-
+body:not(#app) {
+    font-family: sans-serif;
+}
 #app {
     height: 100vh;
     font-family: sans-serif;
@@ -43,9 +45,6 @@
     }
     > footer {
         grid-area: footer;
-    }
-    button {
-        border: none;
     }
     *.visible {
         height: auto !important;
