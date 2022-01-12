@@ -3,10 +3,25 @@
     import Todo from '$components/todo.svelte'
 </script>
 
-<Meta title="Components/Todo" component={Todo}/>
+<Meta
+    title="Components/Todo"
+    component={Todo}
+    argTypes={{
+        title: {
+            type: 'string',
+            defaultValue: 'Todo List',
+            description: 'Set the Todo Title'
+        },
+        items: {
+            control: 'array',
+            defaultValue: [],
+            description: 'Set the items of Todo'
+        }
+    }}
+/>
 
 <Template let:args>
     <Todo {...args}/>
 </Template>
 
-<Story source name="Empty"/>
+<Story source name="Default"/>

@@ -3,10 +3,20 @@
     import Card from '$components/card.svelte'
 </script>
 
-<Meta title="Components/Card" component={Card}/>
+<Meta
+    title="Components/Card"
+    component={Card}
+    argTypes={{
+        title: {
+            type: 'string',
+            defaultValue: 'Card Title',
+            description: 'Set the title of the Card'
+        }
+    }}
+/>
 
 <Template let:args>
     <Card {...args}/>
 </Template>
 
-<Story source name="Simple"/>
+<Story source name="Default"/>
