@@ -2,7 +2,7 @@
     import { network, sites } from '$stores/sites'
     import { theme, handleTheme } from '$stores/theme'
     import { page } from '$app/stores'
-    import Options from '$parts/options.svelte'
+    import Options from '$parts/Options.svelte'
 
     import Dark from '$icons/dark.svg'
     import Light from '$icons/light.svg'

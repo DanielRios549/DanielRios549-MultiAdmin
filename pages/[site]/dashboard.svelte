@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Card from '$components/card.svelte'
-    import Todo from '$components/todo.svelte'
+    import Card from '$components/Card.svelte'
+    import Todo from '$components/Todo.svelte'
 </script>
 
 <section id="cards">

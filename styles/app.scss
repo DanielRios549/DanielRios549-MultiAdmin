@@ -46,8 +46,4 @@ body:not(#app) {
     > footer {
         grid-area: footer;
     }
-    *.visible {
-        height: auto !important;
-        opacity: 1 !important;
-    }
 }

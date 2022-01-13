@@ -34,7 +34,9 @@ module.exports = {
                     '$components': path.resolve('./src/components'),
                     '$parts': path.resolve('./src/parts'),
                     '$icons': path.resolve('./src/icons'),
-                    '$styles': path.resolve('./styles')
+                    '$styles': path.resolve('./styles'),
+                    '$lib': path.resolve('./src/lib'),
+                    '$app': path.resolve('./node_modules/@sveltejs/kit/assets/runtime/app')
                 }
             }
         }

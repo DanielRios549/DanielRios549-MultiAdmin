@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
-    import Todo from '$components/todo.svelte'
+    import Todo from '$components/Todo.svelte'
 </script>
 
 <Meta

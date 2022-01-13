@@ -3,9 +3,9 @@
     import { page } from '$app/stores'
     import { check } from '$stores/auth'
     import { theme } from '$stores/theme'
-    import Sites from '$parts/sites.svelte'
-    import Header from '$parts/header.svelte'
-    import Footer from '$parts/footer.svelte'
+    import Sites from '$parts/Sites.svelte'
+    import Header from '$parts/Header.svelte'
+    import Footer from '$parts/Footer.svelte'
 
     $: path = $page.path
     let ready: boolean
