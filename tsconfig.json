@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
         "moduleResolution": "node",
         "module": "es2020",
         "lib": ["es2020", "DOM"],
@@ -11,9 +12,9 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "baseUrl": ".",
         "allowJs": true,
         "checkJs": true,
+        "removeComments": true,
         "paths": {
             "$lib/*": ["src/lib/*"],
             "$stores/*": ["src/stores/*"],
@@ -22,5 +23,5 @@
             "$icons/*": ["src/icons/*"]
         }
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+    "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte"]
 }

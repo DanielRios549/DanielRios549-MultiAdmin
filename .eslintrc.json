@@ -24,7 +24,8 @@
             "processor": "svelte3/svelte3",
             "rules": {
                 "import/first": "off",
-                "no-multiple-empty-lines": "off"
+                "no-multiple-empty-lines": "off",
+                "no-use-before-define": "off"
             }
         }
     ],

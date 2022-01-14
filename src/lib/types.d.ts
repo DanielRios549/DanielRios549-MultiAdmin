@@ -1,6 +1,5 @@
 import type { Writable } from 'svelte/store'
 
-
 export type List = string[] | object[]
 
 export type Site = {

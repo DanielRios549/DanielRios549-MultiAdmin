@@ -6,7 +6,7 @@
     import type { List, SiteContext } from '$lib/types'
 
     export let title: string = 'Todo List'
-    export let items: List = undefined
+    export let items: List = null
 
     let todo = items || []
     let list: SiteContext['todo']
@@ -20,11 +20,11 @@
         }
     }
 
-    $: if((!items) && (list)) {
+    $: if ((!items) && (list)) {
         todo = $list
     }
 
-    let dragOption: DragOptions = {
+    const dragOption: DragOptions = {
         axis: 'y',
         bounds: 'parent',
         handle: '.move'
