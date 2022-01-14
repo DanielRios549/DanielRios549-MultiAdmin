@@ -1,6 +1,5 @@
 import { browser } from '$app/env'
-import { page } from '$app/stores'
-import { writable, get } from 'svelte/store'
+import { writable } from 'svelte/store'
 import type { Site } from '$lib/types'
 import Dashboard from '$icons/dashboard.svg'
 import Posts from '$icons/posts.svg'
@@ -10,27 +9,34 @@ import Tools from '$icons/tools.svg'
 import Settings from '$icons/settings.svg'
 
 export const network: Site = {
-    'name': 'network',
-    'displayName': 'Network',
-    'link': '/network',
-    'options': ['Dashboard', 'Users', 'Settings']
+    name: 'network',
+    displayName: 'Network',
+    link: '/network',
+    options: ['Dashboard', 'Users', 'Settings']
 }
 
-const defaultSites: Site[] =  [
+const defaultSites: Site[] = [
     {
-        'name': 'reakut',
-        'displayName': 'Reakut',
-        'link': '/reakut',
-        'options': ['Dashboard', 'Posts', 'Pages', 'Users', 'Tools', 'Settings']
+        name: 'reakut',
+        displayName: 'Reakut',
+        link: '/reakut',
+        options: ['Dashboard', 'Posts', 'Pages', 'Users', 'Tools', 'Settings']
     },
     {
-        'name': 'second',
-        'displayName': 'Second',
-        'link': '/second',
-        'options': ['Dashboard', 'Pages', 'Users', 'Tools', 'Settings']
+        name: 'second',
+        displayName: 'Second',
+        link: '/second',
+        options: ['Dashboard', 'Pages', 'Users', 'Tools', 'Settings']
     }
 ]
 
-export const icons = {'dashboard': Dashboard, 'users': Users, 'pages': Pages, 'settings': Settings, 'tools': Tools, 'posts': Posts}
+export const icons = {
+    dashboard: Dashboard,
+    users: Users,
+    pages: Pages,
+    settings: Settings,
+    tools: Tools,
+    posts: Posts
+}
 
-export const sites = writable(browser && JSON.parse(localStorage.getItem('sites')) as Site[] || defaultSites)
+export const sites = writable(browser && (JSON.parse(localStorage.getItem('sites')) as Site[] || defaultSites))
