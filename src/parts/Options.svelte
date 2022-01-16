@@ -1,18 +1,19 @@
 <script lang="ts">
-    import { page } from "$app/stores";
+    import { page } from '$app/stores'
     import { saves, keys } from '$stores/saves'
     import { network, sites, icons } from '$stores/sites'
     import { clickInside } from '$lib/clickToggle'
     import Menu from '$icons/menu.svg'
+    import type { List } from '$lib/types'
 
-    let options: string[] = []
+    let options: List = []
     let link: any
 
     $: {
         const path = $page.path
         const site = path.split('/')[1]
 
-        if (site == 'network') {
+        if (site === 'network') {
             options = network.options
         }
         else {

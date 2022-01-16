@@ -1,0 +1,20 @@
+*.visible {
+    height: auto !important;
+    opacity: 1 !important;
+}
+.iconCenter {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconLeft {
+    background-color: var(--primary);
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

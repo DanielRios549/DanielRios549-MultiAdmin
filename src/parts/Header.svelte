@@ -9,13 +9,13 @@
 <header id="header">
     {#if $isAuth}
         <section id="searchBox" class="toggleArea">
-            <Search/>
+            <Search toggle/>
         </section>
         <section class="toggleArea">
-            <div use:clickInside use:clickOutside id="notificationsToggle">
-                <Notifications/>
+            <div use:clickInside={{ item: 'next' }} id="notificationsToggle">
+                <span class="iconCenter"><Notifications/></span>
             </div>
-            <article id="notifications" class="itemToggle">
+            <article use:clickOutside id="notifications" class="itemToggle" >
                 <header>
                     <h3>Notifications</h3>
                 </header>
@@ -25,11 +25,11 @@
             </article>
         </section>
         <section class="toggleArea">
-            <div use:clickInside use:clickOutside id="userMenuToggle">
-                <span class="icon"><Users/></span>
+            <div use:clickInside={{ item: 'next' }} id="userMenuToggle">
+                <span class="iconLeft"><Users/></span>
                 <span class="name">{$user}</span>
             </div>
-            <nav id="userMenu" class="itemToggle">
+            <nav use:clickOutside id="userMenu" class="itemToggle">
                 <menu>
                     <li>Profile</li>
                     <li>Settings</li>
@@ -56,15 +56,6 @@
             overflow: hidden;
             z-index: 97;
             transition: all 300ms ease;
-
-            :global(.icon) {
-                position: absolute;
-                height: 50px;
-                width: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
         }
         :global(.visible) {
             top: 70px !important;
@@ -145,13 +136,6 @@
                 cursor: pointer;
                 z-index: 100;
 
-                .icon {
-                    background-color: var(--primary);
-                    border-radius: var(--radius);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
                 .name {
                     color: var(--text);
                     display: flex;
