@@ -1,16 +1,15 @@
 <script lang="ts">
     import { clickInside, clickOutside } from '$lib/clickToggle'
     import { user, isAuth } from '$stores/auth'
+    import Search from '$components/Search.svelte'
     import Notifications from '$icons/notifications.svg'
     import Users from '$icons/users.svg'
-    import Search from '$icons/search.svg'
 </script>
 
 <header id="header">
     {#if $isAuth}
         <section id="searchBox" class="toggleArea">
-            <span class="icon"><Search/></span>
-            <input type="text" id="search" name="search" placeholder="Search"/>
+            <Search/>
         </section>
         <section class="toggleArea">
             <div use:clickInside use:clickOutside id="notificationsToggle">
@@ -58,30 +57,13 @@
             z-index: 97;
             transition: all 300ms ease;
 
-            .icon {
+            :global(.icon) {
                 position: absolute;
                 height: 50px;
                 width: 50px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-            }
-            input {
-                border: none;
-                background-color: transparent;
-                text-indent: 50px;
-                height: 100%;
-                width: 50px;
-                cursor: pointer;
-                z-index: 98;
-                transition: width 300ms ease;
-
-                &:focus {
-                    text-indent: 0;
-                    width: 200px;
-                    cursor: text;
-                    margin-left: 30px;
-                }
             }
         }
         :global(.visible) {
