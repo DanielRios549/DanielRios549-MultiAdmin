@@ -1,55 +1,71 @@
 <script lang="ts">
-    import { clickInside, clickOutside } from '$lib/clickToggle'
     import Icon from '$icons/search.svg'
 
-    export let toggle: boolean = false
+    export let focused: boolean = false
 
     let search: string = ''
-    const active: boolean = false
 </script>
 
-<section id="search" use:clickInside={{ item: '#search' }} use:clickOutside>
-    <span class="iconCenter">
+<section id="search" class:focused>
+    <label for="searchInput" id="icon" class="iconCenter">
         <Icon/>
-    </span>
-    <input type="text" id="searchInput" class:toggle name="search" placeholder="Search" bind:value={search}/>
+    </label>
+    <input type="text" id="searchInput" name="search" placeholder="Search" bind:value={search}/>
+    <section id="results">
+        <span>{search}</span>
+    </section>
 </section>
-<section id="results">
-    <header>Search Results</header>
-    <span>{search}</span>
-</section>
-
 
 <style lang="scss">
+    #search.focused {
+        width: 200px;
+
+        #searchInput {
+            text-indent: 0;
+            width: 100%;
+            padding-left: 50px;
+        }
+    }
+    #search:not(.focused) #searchInput {
+        &:focus {
+            text-indent: 0;
+            width: 200px;
+            padding-left: 50px;
+        }
+    }
     #search {
         height: 50px;
         cursor: pointer;
 
-        #searchInput.toggle {
-            &:focus {
-                text-indent: 0;
-                width: 200px;
-                cursor: text;
-                margin-left: 30px;
-            }
-        }
-        #searchInput:not(.toggle) {
-            text-indent: 0;
-            width: 200px;
-            cursor: text;
-            margin-left: 30px;
+        #icon {
+            cursor: pointer;
+            z-index: 99;
         }
         #searchInput {
             border: none;
-            background-color: transparent;
+            position: relative;
+            background-color: var(--secondary);
             text-indent: 50px;
             height: 100%;
             width: 50px;
             z-index: 98;
             transition: width 300ms ease;
+
+            &:focus + #results {
+                display: flex;
+            }
         }
-}
-    #results {
-        display: none;
+        #results {
+            border-radius: var(--radius);
+            background-color: var(--primary);
+            position: relative;
+            top: -108%;
+            left: -4px;
+            height: 200px;
+            width: 104%;
+            display: none;
+            z-index: 97;
+            padding: 60px 20px 20px 20px;
+        }
     }
 </style>

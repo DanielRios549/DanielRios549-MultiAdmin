@@ -7,7 +7,13 @@
     import type { List } from '$lib/types'
 
     let options: List = []
-    let link: any
+    let activeLink: any
+
+    const getLink = (name: string | object) => {
+        if (typeof name === 'string') {
+            return name.toLowerCase()
+        }
+    }
 
     $: {
         const path = $page.path
@@ -19,7 +25,7 @@
         else {
             options = $sites.find(item => item.name === site).options
         }
-        link = (link: string) => $page.path.split('/')[2] === link.toLowerCase()
+        activeLink = (link: string) => $page.path.split('/')[2] === link.toLowerCase()
     }
 </script>
 
@@ -30,9 +36,9 @@
     <nav>
         <menu>
             {#each options as option}
-            <li class:current={link(option)}>
-                <a href="/{$page.path.split('/')[1]}/{option.toLowerCase()}">
-                    <svelte:component this={icons[option.toLowerCase()]}/>
+            <li class:current={activeLink(option)}>
+                <a href="/{$page.path.split('/')[1]}/{getLink(option)}">
+                    <svelte:component this={icons[getLink(option)]}/>
                     {option}
                 </a>
             </li>

@@ -9,7 +9,7 @@
 <header id="header">
     {#if $isAuth}
         <section id="searchBox" class="toggleArea">
-            <Search toggle/>
+            <Search/>
         </section>
         <section class="toggleArea">
             <div use:clickInside={{ item: 'next' }} id="notificationsToggle">
@@ -53,7 +53,7 @@
         #searchBox {
             min-width: 50px;
             display: flex;
-            overflow: hidden;
+            // overflow: hidden;
             z-index: 97;
             transition: all 300ms ease;
         }

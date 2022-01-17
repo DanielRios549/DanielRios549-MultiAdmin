@@ -16,7 +16,7 @@
 />
 
 <Template let:args>
-    <Search {...args}/>
+    <Search focused {...args}/>
 </Template>
 
 <Story source name="Default"/>

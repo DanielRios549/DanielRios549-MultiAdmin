@@ -10,7 +10,7 @@ type Options = {
  * The element to toggle should be exactly after the one that uses the action.
  *
  * @param element The element that uses the action, should not be passed.
- * @param item The item that will be toggled. 
+ * @param item The item that will be toggled.
  * Use `next` to use the one immediately after the `element`.
  *
  * @param save Specify if the element should be save to localStorage or not.
@@ -26,7 +26,7 @@ export function clickInside(element: HTMLElement, options?: Options) {
     function onClick() {
         let item: Element = element
 
-        if (options.item) {
+        if ((options) && (options.item)) {
             if (options.item !== 'next') {
                 item = document.querySelector(options.item)
             }
@@ -35,7 +35,7 @@ export function clickInside(element: HTMLElement, options?: Options) {
             }
         }
 
-        item.classList.add('visible')
+        item.classList.toggle('visible')
 
         if ((options) && (options.save)) {
             const hasClass = item.classList.contains('visible')
