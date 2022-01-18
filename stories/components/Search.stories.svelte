@@ -16,7 +16,16 @@
 />
 
 <Template let:args>
-    <Search opened {...args}/>
+    <div class="wrapper">
+        <Search opened {...args}/>
+    </div>
+    <style lang="scss">
+        .wrapper {
+            display: flex;
+            justify-content: flex-end;
+            width: 500px;
+        }
+    </style>
 </Template>
 
 <Story source name="Default"/>

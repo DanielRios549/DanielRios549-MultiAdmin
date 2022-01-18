@@ -6,14 +6,14 @@
     let search: string = ''
 </script>
 
-<section id="search" class:opened>
+<section id="search" class:opened class="toggleArea">
     <label for="searchInput" id="icon" class="iconCenter">
         <Icon/>
     </label>
     <input type="text" id="searchInput" name="search" placeholder="Search" bind:value={search}/>
-    <section id="results" class="itemToggle">
+    <article id="results" class="toggle">
         <span>{search}</span>
-    </section>
+    </article>
 </section>
 
 <style lang="scss">
