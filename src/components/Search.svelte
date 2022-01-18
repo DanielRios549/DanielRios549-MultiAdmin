@@ -1,23 +1,23 @@
 <script lang="ts">
     import Icon from '$icons/search.svg'
 
-    export let focused: boolean = false
+    export let opened: boolean = false
 
     let search: string = ''
 </script>
 
-<section id="search" class:focused>
+<section id="search" class:opened>
     <label for="searchInput" id="icon" class="iconCenter">
         <Icon/>
     </label>
     <input type="text" id="searchInput" name="search" placeholder="Search" bind:value={search}/>
-    <section id="results">
+    <section id="results" class="itemToggle">
         <span>{search}</span>
     </section>
 </section>
 
 <style lang="scss">
-    #search.focused {
+    #search.opened {
         width: 200px;
 
         #searchInput {
@@ -26,7 +26,7 @@
             padding-left: 50px;
         }
     }
-    #search:not(.focused) #searchInput {
+    #search:not(.opened) #searchInput {
         &:focus {
             text-indent: 0;
             width: 200px;
@@ -34,6 +34,7 @@
         }
     }
     #search {
+        position: relative;
         height: 50px;
         cursor: pointer;
 
@@ -57,15 +58,15 @@
         }
         #results {
             border-radius: var(--radius);
-            background-color: var(--primary);
-            position: relative;
-            top: -108%;
-            left: -4px;
-            height: 200px;
-            width: 104%;
+            background-color: var(--secondary);
+            position: absolute;
+            top: 70px;
+            right: 0;
+            height: 300px;
+            width: 400px;
             display: none;
             z-index: 97;
-            padding: 60px 20px 20px 20px;
+            padding: 20px;
         }
     }
 </style>

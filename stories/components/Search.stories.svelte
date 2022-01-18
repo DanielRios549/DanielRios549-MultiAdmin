@@ -7,16 +7,16 @@
     title="Components/Search"
     component={Search}
     argTypes={{
-        toggle: {
+        opened: {
             type: 'boolean',
-            defaultValue: false,
+            defaultValue: true,
             description: 'Set if the input will be shown or only when the user focuses it.'
         }
     }}
 />
 
 <Template let:args>
-    <Search focused {...args}/>
+    <Search opened {...args}/>
 </Template>
 
 <Story source name="Default"/>

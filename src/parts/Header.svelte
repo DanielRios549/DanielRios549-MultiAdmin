@@ -8,9 +8,7 @@
 
 <header id="header">
     {#if $isAuth}
-        <section id="searchBox" class="toggleArea">
-            <Search/>
-        </section>
+        <Search opened/>
         <section class="toggleArea">
             <div use:clickInside={{ item: 'next' }} id="notificationsToggle">
                 <span class="iconCenter"><Notifications/></span>
@@ -50,43 +48,37 @@
         z-index: 100;
         padding-right: 20px;
 
-        #searchBox {
-            min-width: 50px;
-            display: flex;
-            // overflow: hidden;
-            z-index: 97;
-            transition: all 300ms ease;
-        }
-        :global(.visible) {
-            top: 70px !important;
-        }
-        > *:last-child() {
-            align-items: flex-start;
-        }
-        .itemToggle {
-            border-radius: var(--radius);
-            position: absolute;
-            box-shadow: var(--shadow);
-            background-color: var(--secondary);
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: -40px;
-                right: 20px;
-                border-top: 20px solid transparent;
-                border-left: 20px solid transparent;
-                border-right: 20px solid transparent;
-                border-bottom: 20px solid var(--secondary);
+        :global {
+            .visible {
+                top: 70px !important;
             }
-        } 
+            > section, article, div {
+                box-shadow: var(--shadow);
+                border-radius: var(--radius);
+                background-color: var(--secondary);
+            }
+            .itemToggle {
+                border-radius: var(--radius);
+                position: absolute;
+                box-shadow: var(--shadow);
+                background-color: var(--secondary);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -40px;
+                    right: 20px;
+                    border-top: 20px solid transparent;
+                    border-left: 20px solid transparent;
+                    border-right: 20px solid transparent;
+                    border-bottom: 20px solid var(--secondary);
+                }
+            }
+        }
         .itemToggle:not(.visible) {
             top: -200vh;
         }
         .toggleArea {
-            box-shadow: var(--shadow);
-            border-radius: var(--radius);
-            background-color: var(--secondary);
             position: relative;
             height: 50px;
 
