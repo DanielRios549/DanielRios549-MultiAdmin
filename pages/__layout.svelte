@@ -7,7 +7,7 @@
     import Header from '$parts/Header.svelte'
     import Footer from '$parts/Footer.svelte'
 
-    $: path = $page.path
+    $: path = $page.url.pathname
     let ready: boolean
 
     onMount(async () => {

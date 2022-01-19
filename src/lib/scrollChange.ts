@@ -6,7 +6,7 @@ type Options = {
 
 /**
  * Add a scroll event when the item scrolled is not the body but one of its children
- * 
+ *
  * @param element The element that will be scrolled. It should use the action
  * @param options `Options` to scroll works
  * @returns Nothing, just remove Event Listenner
@@ -25,7 +25,7 @@ export function toggleClass(element: HTMLElement, options: Options) {
             itemToToggle.classList.remove(options.class)
         }
     }
-    
+
     element.addEventListener('scroll', onScroll)
 
     return {

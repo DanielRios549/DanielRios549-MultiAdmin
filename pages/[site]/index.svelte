@@ -3,5 +3,5 @@
     import { page } from '$app/stores'
     import { onMount } from 'svelte'
 
-    onMount(() => goto(`${$page.path}/dashboard`))
+    onMount(() => goto(`${$page.url.pathname}/dashboard`))
 </script>

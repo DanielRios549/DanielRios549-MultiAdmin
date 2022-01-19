@@ -1,3 +1,7 @@
+<script context="module">
+	export const prerender = true
+</script>
+
 <script lang="ts">
     import { setContext } from 'svelte'
     import { writable } from 'svelte/store'
@@ -10,12 +14,12 @@
     const allSites = { network }
     $sites.map((site) => allSites[site.name] = site)
 
-    let site = writable('')
-    let section = writable('')
-    let todo = writable([''])
+    const site = writable('')
+    const section = writable('')
+    const todo = writable([''])
 
     $: {
-        let path = $page.path.split('/')
+        const path = $page.url.pathname.split('/')
 
         $site = allSites[path[1]].displayName
         $section = path[2].charAt(0).toUpperCase() + path[2].slice(1)

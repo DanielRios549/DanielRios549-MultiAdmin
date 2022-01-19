@@ -1,4 +1,8 @@
 .toggleArea {
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    background-color: var(--secondary);
+
     .visible {
         top: 70px !important;
         height: auto !important;
@@ -6,11 +10,6 @@
     }
     .toggle:not(.visible) {
         top: -200vh;
-    }
-    > section, article, div {
-        box-shadow: var(--shadow);
-        border-radius: var(--radius);
-        background-color: var(--secondary);
     }
     .toggle {
         border-radius: var(--radius);

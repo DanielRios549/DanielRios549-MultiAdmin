@@ -6,7 +6,7 @@ import svg from '@poppanator/sveltekit-svg'
 import path from 'path'
 
 /** @type {import('@sveltejs/kit').Config} */
-const config = {
+export default {
     preprocess: sveltePreprocess({
         postcss: {
             plugins: [
@@ -20,9 +20,8 @@ const config = {
     kit: {
         target: '#app',
         adapter: adapter({
-            pages: 'build',
-            assets: 'build',
-            fallback: null
+            pages: 'build/pages',
+            assets: 'build/files'
         }),
         files: {
             routes: 'pages'
@@ -30,18 +29,16 @@ const config = {
         vite: {
             plugins: [svg()],
             optimizeDeps: {
-                exclude: ['svelte-kit-cookie-session'],
+                exclude: ['svelte-kit-cookie-session']
             },
             resolve: {
                 alias: {
-                    '$stores': path.resolve('./src/stores'),
-                    '$components': path.resolve('./src/components'),
-                    '$parts': path.resolve('./src/parts'),
-                    '$icons': path.resolve('./src/icons')
+                    $stores: path.resolve('./src/stores'),
+                    $components: path.resolve('./src/components'),
+                    $parts: path.resolve('./src/parts'),
+                    $icons: path.resolve('./src/icons')
                 }
             }
         }
-    },
+    }
 }
-
-export default config

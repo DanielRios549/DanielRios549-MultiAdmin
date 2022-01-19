@@ -7,7 +7,7 @@
     import Dark from '$icons/dark.svg'
     import Light from '$icons/light.svg'
 
-    $: current = $page.path.split('/')[1]
+    $: current = $page.url.pathname.split('/')[1]
 </script>
 
 <aside id="panel">

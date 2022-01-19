@@ -16,7 +16,7 @@
     }
 
     $: {
-        const path = $page.path
+        const path = $page.url.pathname
         const site = path.split('/')[1]
 
         if (site === 'network') {
@@ -25,7 +25,7 @@
         else {
             options = $sites.find(item => item.name === site).options
         }
-        activeLink = (link: string) => $page.path.split('/')[2] === link.toLowerCase()
+        activeLink = (link: string) => $page.url.pathname.split('/')[2] === link.toLowerCase()
     }
 </script>
 
@@ -37,7 +37,7 @@
         <menu>
             {#each options as option}
             <li class:current={activeLink(option)}>
-                <a href="/{$page.path.split('/')[1]}/{getLink(option)}">
+                <a href="/{$page.url.pathname.split('/')[1]}/{getLink(option)}">
                     <svelte:component this={icons[getLink(option)]}/>
                     {option}
                 </a>
